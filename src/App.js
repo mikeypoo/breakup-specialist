@@ -1,25 +1,28 @@
-import logo from './logo.svg';
+import { useState, useEffect } from 'react'
 import './App.css';
 
-function App() {
+const App = () => {
+  const [theme, setTheme] = useState(() => {
+    const savedTheme = localStorage.getItem('theme');
+    return savedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    window.toggleDayAndNight?.()
+    setTheme((prevTheme) => (prevTheme === 'dark' ? 'light' : 'dark'));
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div>Hello</div>
+      <button onClick={toggleTheme}>Toggle Theme</button>
     </div>
-  );
+  )
 }
 
 export default App;
