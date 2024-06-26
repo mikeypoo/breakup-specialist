@@ -40,7 +40,7 @@ const RightSide = () => {
                     </div>
                 </div>
             </div>
-            <img src="/elizabeth_headshot.png" className="headshot" />
+            <img src="/elizabeth_headshot.png" className="headshot" alt="Elizabeth Aldana headshot" />
             <div className="right-side-attribute-secondary bottom-spacing">
                 Elizabeth is a Breakup Specialist who helps individuals swiftly solve their problems and unlock answers to their life's questions, gaining the time and freedom to reclaim control and live on their terms. 
                 <br />
