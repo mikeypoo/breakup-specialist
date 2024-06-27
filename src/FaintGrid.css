@@ -18,7 +18,7 @@
 
 .faint-grid-line.vertical {
     width: 1px;
-    height: 100vh;
+    height: 100dvh;
 }
 
 .faint-grid-line.vertical.left {
