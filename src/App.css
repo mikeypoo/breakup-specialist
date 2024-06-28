@@ -6,6 +6,13 @@
   --browser-bg-color: white;
 }
 
+@font-face {
+  font-family: 'Sohne';
+  src: url('../public/soehne-kraftig.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
 [data-theme='dark'] {
   --text-color: #F9F8F7;
   --secondary-text-color: #F9F8F799;
@@ -23,10 +30,14 @@ body, html {
   background: var(--browser-bg-color);
 }
 
+.transition-text {
+  transition: color ease-in-out 1s;
+}
+
 body {
   background: transparent;
   color: var(--text-color);
-  font-family: "Sen", sans-serif;
+  font-family: "Sohne", sans-serif;
 }
 
 .container {
@@ -41,6 +52,10 @@ body {
   background-color: var(--background-color);
   position: fixed;
   display: flex;
+}
+
+.footer.no-bg {
+  background: transparent;
 }
 
 .footer-left {

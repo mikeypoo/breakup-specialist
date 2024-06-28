@@ -3,16 +3,16 @@ import './RightSide.css'
 const RightSide = () => {
     return (
         <div className="right-side">
-            <div className="right-side-attribute-primary">
+            <div className="right-side-attribute-primary transition-text">
                 Elizabeth Aldana
             </div>
-            <div className="right-side-attribute-secondary bottom-spacing">
+            <div className="right-side-attribute-secondary bottom-spacing transition-text">
                 Breakup Specialist + Time Bender
             </div>
-            <div className="right-side-attribute-primary">
+            <div className="right-side-attribute-primary transition-text">
                 Certification
             </div>
-            <div className="right-side-attribute-secondary bottom-spacing">
+            <div className="right-side-attribute-secondary bottom-spacing transition-text">
                 <ul>
                     <li>
                         Certified Professional Coach (CPC) / iPEC
@@ -24,24 +24,24 @@ const RightSide = () => {
             </div>
             <div className="right-side-attribute-row bottom-spacing">
                 <div>
-                    <div className="right-side-attribute-primary">
+                    <div className="right-side-attribute-primary transition-text">
                         Available
                     </div>
-                    <div className="right-side-attribute-secondary">
+                    <div className="right-side-attribute-secondary transition-text">
                         1:1 and Group Coaching
                     </div>
                 </div>
                 <div className="right-side-home">
-                    <div className="right-side-attribute-primary">
+                    <div className="right-side-attribute-primary transition-text">
                         Home
                     </div>
-                    <div className="right-side-attribute-secondary">
+                    <div className="right-side-attribute-secondary transition-text">
                         Bay Area, California
                     </div>
                 </div>
             </div>
             <img src="/elizabeth_headshot.png" className="headshot" alt="Elizabeth Aldana headshot" />
-            <div className="right-side-attribute-secondary bottom-spacing">
+            <div className="right-side-attribute-secondary bottom-spacing transition-text">
                 Elizabeth is a Breakup Specialist who helps individuals swiftly solve their problems and unlock answers to their life's questions, gaining the time and freedom to reclaim control and live on their terms. 
                 <br />
                 <br />

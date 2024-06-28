@@ -52,18 +52,18 @@ const App = () => {
           <div className="footer-toggle" onClick={toggleTheme}>
             <Clock isAnimating={isAnimatingClock}/>
             <div className="footer-toggle-container">
-              <div className={`footer-toggle-label${theme === 'dark' ? ' active' : ''}`}>Lunar</div>
-              <div className={`footer-toggle-label${theme === 'dark' ? '' : ' active'}`}>Solar</div>
+              <div className={`transition-text footer-toggle-label${theme === 'dark' ? ' active' : ''}`}>Lunar</div>
+              <div className={`transition-text footer-toggle-label${theme === 'dark' ? '' : ' active'}`}>Solar</div>
             </div>
           </div>
         </div>
         <div className="mobile-footer">
           <div className="footer-right-row">
             <div>
-              <div className="footer-right-label">
+              <div className="footer-right-label transition-text">
                 Meet Elizabeth
               </div>
-              <div className="footer-right-link" onClick={openCalendly}>
+              <div className="footer-right-link transition-text" onClick={openCalendly}>
                 <span>
                   Calendly
                 </span>
@@ -71,10 +71,10 @@ const App = () => {
               </div>
             </div>
             <div className="footer-right-linkedin">
-              <div className="footer-right-label">
+              <div className="footer-right-label transition-text">
                 LinkedIn
               </div>
-              <div className="footer-right-link" onClick={openLinkedIn}>
+              <div className="footer-right-link transition-text" onClick={openLinkedIn}>
                 <span>
                   @witheaa
                 </span>
@@ -94,23 +94,23 @@ const App = () => {
         <LeftSide />
         <RightSide />
       </div>
-      <div className="footer">
+      <div className="footer no-bg">
         <div className="footer-left">
           <div className="footer-toggle" onClick={toggleTheme}>
             <Clock isAnimating={isAnimatingClock}/>
             <div className="footer-toggle-container">
-              <div className={`footer-toggle-label${theme === 'dark' ? ' active' : ''}`}>Lunar</div>
-              <div className={`footer-toggle-label${theme === 'dark' ? '' : ' active'}`}>Solar</div>
+              <div className={`transition-text footer-toggle-label${theme === 'dark' ? ' active' : ''}`}>Lunar</div>
+              <div className={`transition-text footer-toggle-label${theme === 'dark' ? '' : ' active'}`}>Solar</div>
             </div>
           </div>
         </div>
         <div className="footer-right">
           <div className="footer-right-row">
             <div>
-              <div className="footer-right-label">
+              <div className="footer-right-label transition-text">
                 Meet Elizabeth
               </div>
-              <div className="footer-right-link" onClick={openCalendly}>
+              <div className="footer-right-link transition-text" onClick={openCalendly}>
                 <span>
                   Calendly
                 </span>
@@ -118,10 +118,10 @@ const App = () => {
               </div>
             </div>
             <div className="footer-right-linkedin">
-              <div className="footer-right-label">
+              <div className="footer-right-label transition-text">
                 LinkedIn
               </div>
-              <div className="footer-right-link" onClick={openLinkedIn}>
+              <div className="footer-right-link transition-text" onClick={openLinkedIn}>
                 <span>
                   @witheaa
                 </span>
