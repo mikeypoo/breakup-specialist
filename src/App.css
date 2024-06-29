@@ -21,6 +21,10 @@
   --browser-bg-color: black;
 }
 
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 body, html {
   margin: 0;
   padding: 0;
@@ -170,6 +174,31 @@ body {
   width: 100vw;
   height: 80px;
   padding-left: 20px;
+}
+
+.start-now-link {
+  font-size: 36px;
+  color: var(--text-color);
+  margin-top: 24px;
+  display: inline-block;
+}
+
+.profile-container {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.top-spacing {
+  margin-top: 32px;
+}
+
+.home-mobile {
+  margin-bottom: 24px;
+}
+
+.mobile-container {
+  padding-bottom: 60px;
 }
 
 .webgl {

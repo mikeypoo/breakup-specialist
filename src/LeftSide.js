@@ -7,8 +7,11 @@ const LeftSide = () => {
                 BEND TIME AND CREATE MIRACLES
             </div>
             <div className="left-side-body-copy transition-text">
-                unlock answers to life's questions / swiftly solve your problems / gain more time and freedom / reclaim control of your life / live life on your own terms
+                Gain clarity, overcome obstacles, and take control of your life—faster.
             </div>
+            <a className="start-now-link transition-text" href="https://calendly.com/elizaldana/clarity-session" target="_blank">
+                Start Now
+            </a>
         </div>
     )
 }

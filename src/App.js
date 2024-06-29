@@ -72,11 +72,11 @@ const App = () => {
             </div>
             <div className="footer-right-linkedin">
               <div className="footer-right-label transition-text">
-                LinkedIn
+                Background
               </div>
               <div className="footer-right-link transition-text" onClick={openLinkedIn}>
                 <span>
-                  @witheaa
+                  LinkedIn
                 </span>
                 <NewTabIcon />
               </div>
@@ -119,11 +119,11 @@ const App = () => {
             </div>
             <div className="footer-right-linkedin">
               <div className="footer-right-label transition-text">
-                LinkedIn
+                Background
               </div>
               <div className="footer-right-link transition-text" onClick={openLinkedIn}>
                 <span>
-                  @witheaa
+                  LinkedIn
                 </span>
                 <NewTabIcon />
               </div>
