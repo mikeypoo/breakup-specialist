@@ -26,7 +26,7 @@ const MobileContent = () => {
                 <br />
                 <br />
 
-                Specializing in helping people break up with the people, places, and patterns that no longer serve them, I unlock lasting success and genuine joy. Your past doesn’t define your future, but your present does. I empower you to pivot from your current situation, embracing change with excitement for what could be. Why continue to tolerate anger, frustration, depression, or confusion? This disservice to your future self benefits no one.
+                Specializing in helping people break up with the people, places, and patterns that no longer serve them, I help you unlock lasting success and genuine joy. Your past doesn’t define your future, but your present does. I empower you to pivot from your current situation, embracing change with excitement for what could be. Why continue to tolerate anger, frustration, depression, or confusion? This disservice to your future self benefits no one.
                 <br />
                 <br />
 
