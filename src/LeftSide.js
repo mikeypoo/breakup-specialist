@@ -4,13 +4,13 @@ const LeftSide = () => {
     return (
         <div className="left-side">
             <div className="left-side-headline transition-text">
-                BEND TIME AND CREATE MIRACLES
+                BREAKUPS THAT INSPIRE BREAKTHROUGHS
             </div>
             <div className="left-side-body-copy transition-text">
-                Gain clarity, overcome obstacles, and take control of your life—faster.
+                Part ways with the people, places, and patterns that hold you back.
             </div>
             <a className="start-now-link transition-text" href="https://calendly.com/elizaldana/clarity-session" target="_blank" rel="noreferrer">
-                Start Now
+                It’s Time
             </a>
         </div>
     )

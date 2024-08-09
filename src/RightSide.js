@@ -10,32 +10,44 @@ const RightSide = () => {
                         Elizabeth Aldana
                     </div>
                     <div className="right-side-attribute-secondary transition-text">
-                        Breakup Specialist + Time Bender
+                        Breakup Artist + Time Bender
                     </div>
                 </div>
             </div>
-            <div className="right-side-attribute-secondary bottom-spacing transition-text">
-                I believe everyone can have what they want, no matter how big or seemingly impossible. With true desire and commitment, anything is within reach. As a passionate advocate for personal growth, life optimization, and making things happen, I leverage focused energy to create daily miracles and profound transformations.
+            <div className="right-side-attribute-secondary bottom-spacing more-bottom-spacing transition-text">
+                What’s so great about a breakup?
                 <br />
                 <br />
 
-                Specializing in helping people break up with the people, places, and patterns that no longer serve them, I help you unlock lasting success and genuine joy. Your past doesn’t define your future, but your present does. I empower you to pivot from your current situation, embracing change with excitement for what could be. Why continue to tolerate anger, frustration, depression, or confusion? This disservice to your future self benefits no one.
+                <strong>Everything.</strong>
                 <br />
                 <br />
 
-                As a certified coach with a decade of experience in project management and creative operations, I bring clarity, strategic execution, and fearless prioritization to your journey. My approach is the ultimate life optimizer, addressing mental, emotional, physical, and spiritual aspects to create the reality you desire and deserve. Together, we’ll answer "what’s next?" with concrete actions to propel you forward. Our partnership will illuminate new paths, using the light of awareness to bridge the gap between who you are now and who you want to become.
+                Letting go of the people, places, and patterns that no longer serve us means we aren’t stuck, stagnant, or stifled. So why doesn’t everyone do it? Put simply: It’s easier to stay put.
                 <br />
                 <br />
 
-                Are you tired of settling? Do you feel ambitious yet out of sync? Have you outgrown your current path and are ready for a more rewarding way of living? Working with me accelerates your journey to clarity, freedom, and self-mastery. I balance being warm, supportive, and easy to talk to with being firm, challenging, and pushing you to reach your highest potential.
+                Anyone can get stuck in the loop of dream → disappointment → despair →, with little to no progress in one or more areas of their life. If this sounds familiar, you’re not uniquely broken–you’re just on the brink of a breakup.
                 <br />
                 <br />
 
-                I work with those ready to make change happen, get things done, and attain what they’ve been putting off for too long—now. If you’re ready to step into your next level of potential, I invite you to connect and start your life-changing experience today.
+                As a compassionate breakup artist and time bender, I help highly motivated individuals dissolve limiting relationships–to jobs, people, and habits–using personalized, strategic action plans. Together, we’ll apply focused energy and uncommon clarity to rapidly achieve results that could otherwise take years. It’s collaborative time-bending at its best!
                 <br />
                 <br />
 
-                Now is your time to break up, move on, and go beyond.
+                If you’re wary of standard life coaching but know you need reinforcements, you’re in the right place. Exponential growth and transformation can occur when we align, chart a clear course, and implement strategies uniquely tailored to your dreams. But it’s about so much more than just coaching–it’s about radical accountability and cultivating the courage to shine forth.
+                <br />
+                <br />
+
+                Breaking free means stepping into a fuller, more expansive life with entirely new levels of success, responsibility, and freedom. Not everyone is ready. But if you’re willing to trade familiarity for focused, fearless expansion, you’re not everyone:
+                <br />
+                <br />
+
+                You’re a time-bending, miracle-creating, beacon of life-giving light.
+                <br />
+                <br />
+
+                You’re breakup material.
             </div>
             <div className="right-side-attribute-primary transition-text">
                 Certification
