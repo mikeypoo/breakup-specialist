@@ -31,7 +31,7 @@ const RightSide = () => {
                 <br />
                 <br />
 
-                As a compassionate breakup artist and time bender, I help highly motivated individuals dissolve limiting relationships–to jobs, people, and habits–using personalized, strategic action plans. Together, we’ll apply focused energy and uncommon clarity to rapidly achieve results that could otherwise take years. It’s collaborative time-bending at its best!
+                As a compassionate breakup artist and time bender, I help highly motivated individuals dissolve limiting relationships–to environments, people, and habits–using personalized, strategic action plans. Together, we’ll apply focused energy and uncommon clarity to rapidly achieve results that could otherwise take years. It’s collaborative time-bending at its best!
                 <br />
                 <br />
 
@@ -39,7 +39,7 @@ const RightSide = () => {
                 <br />
                 <br />
 
-                Breaking free means stepping into a fuller, more expansive life with entirely new levels of success, responsibility, and freedom. Not everyone is ready. But if you’re willing to trade familiarity for focused, fearless expansion, you’re not everyone:
+                Breaking free means stepping into a fuller, more expansive life with entirely new levels of success, agency, and freedom. Not everyone is ready. But if you’re willing to trade familiarity for focused, fearless expansion, you’re not everyone:
                 <br />
                 <br />
 
