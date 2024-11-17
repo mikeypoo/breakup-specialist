@@ -6,29 +6,23 @@ const transforminator = (tabKey, totalScroll, thresholds) => {
 
   let transform = document.getElementById(tabKey).style.transform;
 
-  if (totalScroll <= thresholds.expertise) {
-    if (tabKey === "expertise") {
-      transform = `translateX(clamp(${-thresholds.expertise}px, ${-Math.round(
+  if (totalScroll <= thresholds.paradox) {
+    if (tabKey === "paradox") {
+      transform = `translateX(clamp(${-thresholds.paradox}px, ${-Math.round(
         totalScroll
       )}px, 0px))`;
     }
-  } else if (totalScroll <= thresholds.breakThrough) {
-    if (tabKey === "breakThrough") {
+  } else if (totalScroll <= thresholds.breakup) {
+    if (tabKey === "breakup") {
       transform = `translateX(clamp(${
-        -thresholds.breakThrough + thresholds.expertise
-      }px, ${-Math.round(totalScroll) + thresholds.expertise}px, 0px))`;
-    }
-  } else if (totalScroll <= thresholds.outcomes) {
-    if (tabKey === "outcomes") {
-      transform = `translateX(clamp(${
-        -thresholds.outcomes + thresholds.breakThrough
-      }px, ${-Math.round(totalScroll) + thresholds.breakThrough}px, 0px))`;
+        -thresholds.breakup + thresholds.paradox
+      }px, ${-Math.round(totalScroll) + thresholds.paradox}px, 0px))`;
     }
   } else if (totalScroll <= thresholds.approach) {
     if (tabKey === "approach") {
       transform = `translateX(clamp(${
-        -thresholds.approach + thresholds.outcomes
-      }px, ${-Math.round(totalScroll) + thresholds.outcomes}px, 0px))`;
+        -thresholds.approach + thresholds.breakup
+      }px, ${-Math.round(totalScroll) + thresholds.breakup}px, 0px))`;
     }
   }
   return { transform };
@@ -48,7 +42,11 @@ export const TabPanel = ({ tabKey, totalScroll, thresholds }) => {
         <div className="body-container">
           <div className="editorial-font body-title">{tabData.bodyTitle}</div>
           <div className="body-font body-subtitle">{tabData.bodySubtitle}</div>
-          <div className="body-font body-content">{tabData.bodyContent}</div>
+          <div className="body-font body-content">
+            {tabData.bodyContent.split("\n").map(section => {
+              return <div style={{ marginTop: '24px'}}>{section}</div>
+            })}
+          </div>
           <button className="editorial-font body-cta" onClick={openCalendly}>
             I am ready
           </button>

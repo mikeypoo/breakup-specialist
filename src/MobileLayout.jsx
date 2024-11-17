@@ -9,39 +9,57 @@ export const MobileLayout = () => {
 
   const [totalScroll, setTotalScroll] = useState(0);
   const thresholds = useRef({
-    expertise: Infinity,
-    breakThrough: Infinity,
-    outcomes: Infinity,
+    home: 0,
+    paradox: Infinity,
+    breakup: Infinity,
     approach: Infinity,
   });
 
   useEffect(() => {
-    const onScroll = (scrollEvent) => {
-      console.log("SHADINGO", { scrollEvent });
+    let startingPageY = 0
 
-      const amountChanged = 7;
+    const onTouchStart = (touchStartEvent) => {
+      startingPageY = touchStartEvent.touches[0].pageY
+    }
+
+    const onTouchMove = (touchMoveEvent) => {
+      const newPageY = touchMoveEvent.touches[0].pageY
+
+      const amountChanged = startingPageY - newPageY
 
       setTotalScroll((prevScroll) => {
-        const newScroll = prevScroll - amountChanged / 20;
-        let snappedScroll = newScroll;
+        const newScroll = prevScroll + amountChanged;
 
         if (newScroll >= 0 && newScroll <= thresholds.current.approach) {
-          snappedScroll = newScroll;
-          Object.values(thresholds.current).forEach((thresh) => {
-            if (Math.abs(thresh - newScroll) < 5) {
-              snappedScroll = thresh;
-            }
-          });
-          return snappedScroll;
+          return newScroll;
         }
         return prevScroll;
       });
+      startingPageY = newPageY
     };
 
-    window.addEventListener("touchmove", onScroll);
+    const onTouchEnd = () => {
+      setTotalScroll(prevScroll => {
+      let minThresh = Infinity
+        Object.values(thresholds.current).forEach(thresh => {
+          if (Math.abs(prevScroll + startingPageY - thresh) < Math.abs(prevScroll + startingPageY - minThresh)) {
+            minThresh = thresh
+          }
+        })
+
+        return minThresh
+      })
+      startingPageY = 0
+    }
+
+    window.addEventListener("touchstart", onTouchStart);
+    window.addEventListener("touchmove", onTouchMove);
+    window.addEventListener("touchend", onTouchEnd)
 
     return () => {
-      window.removeEventListener("touchmove", onScroll);
+      window.removeEventListener("touchstart", onTouchStart);
+      window.removeEventListener("touchmove", onTouchMove);
+      window.removeEventListener("touchend", onTouchEnd);
     };
   }, []);
 
@@ -52,7 +70,7 @@ export const MobileLayout = () => {
 
       viewModel.tabKeys.forEach((key, idx) => {
         const el = document.getElementById(key);
-        const currentTop = el.getBoundingClientRect().top - 20 * (idx + 1);
+        const currentTop = el.getBoundingClientRect().top - 8 * (idx + 1);
         newThresholds[key] = rollingThreshold + currentTop;
         rollingThreshold += currentTop;
       });

@@ -8,9 +8,9 @@ export const DesktopLayout = () => {
   const { home, tabKeys } = viewModel;
   const [totalScroll, setTotalScroll] = useState(0);
   const thresholds = useRef({
-    expertise: Infinity,
-    breakThrough: Infinity,
-    outcomes: Infinity,
+    home: 0,
+    paradox: Infinity,
+    breakup: Infinity,
     approach: Infinity,
   });
 

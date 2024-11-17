@@ -6,29 +6,39 @@ const transforminator = (tabKey, totalScroll, thresholds) => {
 
   let transform = document.getElementById(tabKey).style.transform;
 
-  if (totalScroll <= thresholds.expertise) {
-    if (tabKey === "expertise") {
-      transform = `translateY(clamp(${-thresholds.expertise}px, ${-Math.round(
-        totalScroll
-      )}px, 0px))`;
+  if (totalScroll === 0) {
+    if (tabKey === "paradox") {
+      transform = `translateY(0px)`;
     }
-  } else if (totalScroll <= thresholds.breakThrough) {
-    if (tabKey === "breakThrough") {
-      transform = `translateY(clamp(${
-        -thresholds.breakThrough + thresholds.expertise
-      }px, ${-Math.round(totalScroll) + thresholds.expertise}px, 0px))`;
+  }
+
+  if (totalScroll < thresholds.paradox) {
+    if (tabKey === "paradox") {
+      transform = `translateY(${-Math.round(totalScroll)}px)`;
     }
-  } else if (totalScroll <= thresholds.outcomes) {
-    if (tabKey === "outcomes") {
-      transform = `translateY(clamp(${
-        -thresholds.outcomes + thresholds.breakThrough
-      }px, ${-Math.round(totalScroll) + thresholds.breakThrough}px, 0px))`;
+  } else if (totalScroll === thresholds.paradox) {
+    if (tabKey === "paradox") {
+      transform = `translateY(${-Math.round(totalScroll)}px)`;
     }
+    if (tabKey === "breakup") {
+      transform = `translateY(${-Math.round(totalScroll) + thresholds.paradox}px)`;
+    }
+
+  } else if (totalScroll < thresholds.breakup) {
+    if (tabKey === "breakup") {
+      transform = `translateY(${-Math.round(totalScroll) + thresholds.paradox}px)`;
+    }
+  } else if (totalScroll === thresholds.breakup) {
+    if (tabKey === "breakup") {
+      transform = `translateY(${-Math.round(totalScroll) + thresholds.paradox}px)`;
+    }
+    if (tabKey === "approach") {
+      transform = `translateY(${-Math.round(totalScroll) + thresholds.breakup}px)`;
+    }
+
   } else if (totalScroll <= thresholds.approach) {
     if (tabKey === "approach") {
-      transform = `translateY(clamp(${
-        -thresholds.approach + thresholds.outcomes
-      }px, ${-Math.round(totalScroll) + thresholds.outcomes}px, 0px))`;
+      transform = `translateY(${-Math.round(totalScroll) + thresholds.breakup}px)`;
     }
   }
   return { transform };
@@ -46,9 +56,12 @@ export const MobileTabPanel = ({ tabKey, totalScroll, thresholds }) => {
       <div className="tab-content">
         <div className="title-text editorial-font">{tabData.tabTitle}</div>
         <div className="body-container">
-          <div className="editorial-font body-title">{tabData.bodyTitle}</div>
           <div className="body-font body-subtitle">{tabData.bodySubtitle}</div>
-          <div className="body-font body-content">{tabData.bodyContent}</div>
+          <div className="body-font body-content">
+            {tabData.bodyContent.split("\n").map(section => {
+              return <div style={{ marginTop: '24px'}}>{section}</div>
+            })}
+          </div>
           <button className="editorial-font body-cta" onClick={openCalendly}>
             I am ready
           </button>
