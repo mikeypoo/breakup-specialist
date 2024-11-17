@@ -1,50 +1,50 @@
-.desktop-layout .editorial-font {
+.mobile-layout .editorial-font {
   font-family: "Editorial New";
   color: var(--eerie-black);
   letter-spacing: -1px;
 }
 
-.desktop-layout .body-font {
+.mobile-layout .body-font {
   font-family: monospace;
   color: var(--dim-gray);
 }
 
-.desktop-layout {
+.mobile-layout {
   width: 100vw;
   height: 100vh;
   position: fixed;
 }
 
-.desktop-layout .home-content {
+.mobile-layout .home-content {
   height: 100vh;
   position: relative;
 }
 
-.desktop-layout .home-content-name,
-.desktop-layout .home-content-title {
-  font-size: 8rem;
+.mobile-layout .home-content-name,
+.mobile-layout .home-content-title {
+  font-size: 5rem;
   position: absolute;
   z-index: 2;
-  padding: 40px;
+  padding: 20px;
   max-width: 100px;
-  line-height: 6rem;
+  line-height: 4rem;
+}
+
+.mobile-layout .home-content-name {
+  transform-origin: top;
   transform: scaleY(1.2);
 }
 
-.desktop-layout .home-content-name {
+.mobile-layout .home-content-title {
+  bottom: 50%;
   transform-origin: top;
+  transform: scaleY(1.2) translateY(35%);
 }
 
-.desktop-layout .home-content-title {
-  bottom: 0;
-  transform-origin: bottom;
-}
-
-.desktop-layout .home-content-img {
+.mobile-layout .home-content-img {
   position: absolute;
-  top: 50%;
-  right: 50%;
-  transform: translateY(-50%) translateX(50%);
+  top: 25%;
+  right: 24px;
 }
 
 .desktop-layout .tab-list {

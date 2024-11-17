@@ -9,6 +9,7 @@ export const viewModel = {
     titleTop: "Breakup",
     titleBottom: "Artist",
     imgSrc: "https://dummyimage.com/373x459/aaa/eee",
+    mobileImgSrc: "https://dummyimage.com/140x172/aaa/eee",
   },
   expertise: {
     tabTitle: "My Areas of Expertise",
