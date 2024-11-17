@@ -1,138 +1,59 @@
-import { useState, useEffect } from 'react'
-import FaintGrid from './FaintGrid';
-import LeftSide from './LeftSide';
-import RightSide from './RightSide';
-import './App.css';
-import NewTabIcon from './NewTabIcon';
-import Clock from './Clock';
-import MobileContent from './MobileContent';
+import { useState, useEffect } from "react";
+import "./App.css";
+import { MobileLayout } from "./MobileLayout";
+import { DesktopLayout } from "./DesktopLayout";
+import { AppContext } from "./AppContext";
+import { viewModel } from "./viewModel";
 
-const MOBILE_THRESH = 1060
+const MOBILE_THRESH = 1060;
 
 const App = () => {
-  const [theme, setTheme] = useState('dark')
-  const [isAnimatingClock, setIsAnimatingClock] = useState(false)
-  const [isMobileView, setIsMobileView] = useState(window.innerWidth < MOBILE_THRESH)
+  const [theme, setTheme] = useState("dark");
+  const [isMobileView, setIsMobileView] = useState(
+    window.innerWidth < MOBILE_THRESH
+  );
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
+    document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
 
   useEffect(() => {
     const updateSize = () => {
-      setIsMobileView(window.innerWidth < MOBILE_THRESH)
-    }
-    window.addEventListener('resize', updateSize);
+      setIsMobileView(window.innerWidth < MOBILE_THRESH);
+    };
+    window.addEventListener("resize", updateSize);
     updateSize();
-    return () => window.removeEventListener('resize', updateSize);
-  }, [])
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
 
   const toggleTheme = () => {
-    setIsAnimatingClock(true)
-    setTimeout(() => {
-      setIsAnimatingClock(false)
-    }, 2000)
-    window.toggleDayAndNight?.()
-    setTheme((prevTheme) => (prevTheme === 'dark' ? 'light' : 'dark'));
-  }
+    setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"));
+  };
 
   const openCalendly = () => {
-    window.open('https://calendly.com/elizaldana/clarity-session', '_blank').focus();
-  }
+    window
+      .open("https://calendly.com/elizaldana/clarity-session", "_blank")
+      .focus();
+  };
 
   const openLinkedIn = () => {
-    window.open('https://www.linkedin.com/in/witheaa/', '_blank').focus();
-  }
+    window.open("https://www.linkedin.com/in/witheaa/", "_blank").focus();
+  };
 
-  if (isMobileView) {
-    return (
-      <div>
-        <div className="vertical-container">
-          <MobileContent />
-          <div className="footer-toggle" onClick={toggleTheme}>
-            <Clock isAnimating={isAnimatingClock}/>
-            <div className="footer-toggle-container">
-              <div className={`transition-text footer-toggle-label${theme === 'dark' ? ' active' : ''}`}>Lunar</div>
-              <div className={`transition-text footer-toggle-label${theme === 'dark' ? '' : ' active'}`}>Solar</div>
-            </div>
-          </div>
-        </div>
-        <div className="mobile-footer">
-          <div className="footer-right-row">
-            <div>
-              <div className="footer-right-label transition-text">
-                Meet Elizabeth
-              </div>
-              <div className="footer-right-link transition-text" onClick={openCalendly}>
-                <span>
-                  Calendly
-                </span>
-                <NewTabIcon />
-              </div>
-            </div>
-            <div className="footer-right-linkedin">
-              <div className="footer-right-label transition-text">
-                Background
-              </div>
-              <div className="footer-right-link transition-text" onClick={openLinkedIn}>
-                <span>
-                  LinkedIn
-                </span>
-                <NewTabIcon />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    )
-  }
+  const contextValue = {
+    toggleTheme,
+    openCalendly,
+    openLinkedIn,
+    viewModel,
+  };
+
+  const Layout = isMobileView ? MobileLayout : DesktopLayout;
 
   return (
-    <div>
-      <FaintGrid />
-      <div className="container">
-        <LeftSide />
-        <RightSide />
-      </div>
-      <div className="footer no-bg">
-        <div className="footer-left">
-          <div className="footer-toggle" onClick={toggleTheme}>
-            <Clock isAnimating={isAnimatingClock}/>
-            <div className="footer-toggle-container">
-              <div className={`transition-text footer-toggle-label${theme === 'dark' ? ' active' : ''}`}>Lunar</div>
-              <div className={`transition-text footer-toggle-label${theme === 'dark' ? '' : ' active'}`}>Solar</div>
-            </div>
-          </div>
-        </div>
-        <div className="footer-right">
-          <div className="footer-right-row">
-            <div>
-              <div className="footer-right-label transition-text">
-                Meet Elizabeth
-              </div>
-              <div className="footer-right-link transition-text" onClick={openCalendly}>
-                <span>
-                  Calendly
-                </span>
-                <NewTabIcon />
-              </div>
-            </div>
-            <div className="footer-right-linkedin">
-              <div className="footer-right-label transition-text">
-                Background
-              </div>
-              <div className="footer-right-link transition-text" onClick={openLinkedIn}>
-                <span>
-                  LinkedIn
-                </span>
-                <NewTabIcon />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
+    <AppContext.Provider value={contextValue}>
+      <Layout />
+    </AppContext.Provider>
+  );
+};
 
 export default App;
