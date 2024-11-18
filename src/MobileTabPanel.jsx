@@ -1,65 +1,47 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AppContext } from "./AppContext";
 
-const transforminator = (tabKey, totalScroll, thresholds) => {
-  if (totalScroll <= 0) return { transform: null };
-
-  let transform = document.getElementById(tabKey).style.transform;
-
-  if (totalScroll === 0) {
-    if (tabKey === "paradox") {
-      transform = `translateY(0px)`;
-    }
-  }
-
-  if (totalScroll < thresholds.paradox) {
-    if (tabKey === "paradox") {
-      transform = `translateY(${-Math.round(totalScroll)}px)`;
-    }
-  } else if (totalScroll === thresholds.paradox) {
-    if (tabKey === "paradox") {
-      transform = `translateY(${-Math.round(totalScroll)}px)`;
-    }
-    if (tabKey === "breakup") {
-      transform = `translateY(${-Math.round(totalScroll) + thresholds.paradox}px)`;
-    }
-
-  } else if (totalScroll < thresholds.breakup) {
-    if (tabKey === "breakup") {
-      transform = `translateY(${-Math.round(totalScroll) + thresholds.paradox}px)`;
-    }
-  } else if (totalScroll === thresholds.breakup) {
-    if (tabKey === "breakup") {
-      transform = `translateY(${-Math.round(totalScroll) + thresholds.paradox}px)`;
-    }
-    if (tabKey === "approach") {
-      transform = `translateY(${-Math.round(totalScroll) + thresholds.breakup}px)`;
-    }
-
-  } else if (totalScroll <= thresholds.approach) {
-    if (tabKey === "approach") {
-      transform = `translateY(${-Math.round(totalScroll) + thresholds.breakup}px)`;
-    }
-  }
-  return { transform };
-};
-
-export const MobileTabPanel = ({ tabKey, totalScroll, thresholds }) => {
+export const MobileTabPanel = ({ tabKey }) => {
   const { viewModel, openCalendly } = useContext(AppContext);
+  const [transform, setTransform] = useState("");
+  const [startingPageY, setStartingPageY] = useState(0);
 
   const tabData = viewModel[tabKey];
 
-  const { transform } = transforminator(tabKey, totalScroll, thresholds);
+  const tabTouchStart = (touchStartEvent) => {
+    setStartingPageY(touchStartEvent.touches[0].pageY);
+  };
+
+  const tabTouchMove = (touchMoveEvent) => {
+    const newPageY = touchMoveEvent.touches[0].pageY;
+    console.log("SHADINGO", { newPageY, startingPageY });
+    setTransform(`translateY(-${startingPageY - newPageY}px)`);
+  };
+
+  const tabTouchEnd = (touchEndEvent) => {
+    setStartingPageY(0);
+  };
 
   return (
     <div className="tab smooth-transition" style={{ transform }} id={tabKey}>
       <div className="tab-content">
-        <div className="title-text editorial-font">{tabData.tabTitle}</div>
+        <div
+          className="title-text editorial-font"
+          onTouchStart={tabTouchStart}
+          onTouchMove={tabTouchMove}
+          onTouchEnd={tabTouchEnd}
+        >
+          {tabData.tabTitle}
+        </div>
         <div className="body-container">
           <div className="body-font body-subtitle">{tabData.bodySubtitle}</div>
           <div className="body-font body-content">
-            {tabData.bodyContent.split("\n").map(section => {
-              return <div style={{ marginTop: '24px'}}>{section}</div>
+            {tabData.bodyContent.map((section) => {
+              return (
+                <div style={{ marginTop: "24px" }} key={section.id}>
+                  {section.section}
+                </div>
+              );
             })}
           </div>
           <button className="editorial-font body-cta" onClick={openCalendly}>
