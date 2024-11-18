@@ -87,39 +87,47 @@
 
 .mobile-layout .tab .title-text {
   font-size: 2rem;
-  margin-bottom: 4px;
   line-height: 2.75rem;
 }
 
 .mobile-layout .tab .body-container {
-  max-height: 50vh;
-  margin-top: 10vh;
-  overflow-y: auto;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 300ms 300ms ease-out, transform 300ms 300ms ease-out;
+}
+
+.mobile-layout .tab .body-container.showing {
+  opacity: 1;
+  transform: translateY(0px);
 }
 
 .mobile-layout .tab .body-container .body-content {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   color: var(--eerie-black);
   overflow-y: auto;
+  max-height: calc(100vh - 240px);
+  padding-bottom: 24px;
+	background:
+		/* Shadow covers */
+		linear-gradient(var(--off-white) 30%, rgba(255,255,255,0)),
+		linear-gradient(rgba(255,255,255,0), var(--off-white) 70%) 0 100%,
+		
+		/* Shadows */
+		radial-gradient(farthest-side at 50% 0, var(--eerie-black-alpha), rgba(0,0,0,0)),
+		radial-gradient(farthest-side at 50% 100%, var(--eerie-black-alpha), rgba(0,0,0,0)) 0 100%;
+	background-repeat: no-repeat;
+	background-size: 100% 40px, 100% 40px, 100% 14px, 100% 14px;
+	
+	/* Opera doesn't support this in the shorthand */
+	background-attachment: local, local, scroll, scroll;
 }
 
-.desktop-layout .tab .body-container .body-title {
-  font-size: 2.5rem;
-  transform: scaleY(1.2);
-  margin-bottom: 24px;
-}
-
-.desktop-layout .tab .body-container .body-subtitle {
-  font-size: 1rem;
+.mobile-layout .tab .body-container .body-subtitle {
+  font-size: 0.85rem;
   text-transform: uppercase;
-  max-width: 150px;
-  text-align: center;
+  max-width: 200px;
 }
 
-.desktop-layout .tab .body-container .body-cta {
+.mobile-layout .tab .body-container .body-cta {
   border: 1px solid var(--eerie-black);
   border-radius: 54px;
   padding-inline: 40px;
@@ -132,7 +140,7 @@
   cursor: pointer;
 }
 
-.desktop-layout .tab .body-container .body-cta:hover {
+.mobile-layout .tab .body-container .body-cta:hover {
   border: 1px solid var(--off-white);
   background-color: var(--eerie-black);
   color: var(--off-white);

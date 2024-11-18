@@ -3,11 +3,13 @@ import { AppContext } from "./AppContext";
 
 export const MobileTabPanel = ({ tabKey, thresholds, swipes, toggleSwipeOf }) => {
   const { viewModel, openCalendly } = useContext(AppContext);
-  const [transform, setTransform] = useState("");
+  const [transform, setTransform] = useState("translateY(0px)");
   const [startingPageY, setStartingPageY] = useState(0);
 
 
   const isSwipedUp = useMemo(() => swipes[tabKey], [swipes])
+
+  const bodyContainerClass = isSwipedUp ? 'body-container showing' : 'body-container'
 
   const canSwipe = useMemo(() => {
     let countSwiped = 0
@@ -90,7 +92,7 @@ export const MobileTabPanel = ({ tabKey, thresholds, swipes, toggleSwipeOf }) =>
     }
 
     toggleSwipeOf(tabKey)
-  }, [isSwipedUp, tabKey, canSwipe])
+  }, [isSwipedUp, tabKey, canSwipe, thresholds])
 
   return (
     <div className="tab smooth-transition" style={{ transform }} id={tabKey}>
@@ -104,7 +106,7 @@ export const MobileTabPanel = ({ tabKey, thresholds, swipes, toggleSwipeOf }) =>
         >
           {tabData.tabTitle}
         </div>
-        <div className="body-container">
+        <div className={bodyContainerClass}>
           <div className="body-font body-subtitle">{tabData.bodySubtitle}</div>
           <div className="body-font body-content">
             {tabData.bodyContent.map((section) => {
