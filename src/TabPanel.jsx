@@ -43,8 +43,12 @@ export const TabPanel = ({ tabKey, totalScroll, thresholds }) => {
           <div className="editorial-font body-title">{tabData.bodyTitle}</div>
           <div className="body-font body-subtitle">{tabData.bodySubtitle}</div>
           <div className="body-font body-content">
-            {tabData.bodyContent.split("\n").map(section => {
-              return <div style={{ marginTop: '24px'}}>{section}</div>
+            {tabData.bodyContent.map((section) => {
+              return (
+                <div style={{ marginTop: "24px" }} key={section.id}>
+                  {section.section}
+                </div>
+              );
             })}
           </div>
           <button className="editorial-font body-cta" onClick={openCalendly}>

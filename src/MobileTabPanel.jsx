@@ -58,7 +58,6 @@ export const MobileTabPanel = ({ tabKey, thresholds, swipes, toggleSwipeOf }) =>
     const absTranslation = Math.abs(newTranslation)
 
     if (newTranslation < 0) {
-      // trying to swipe up
       if (isSwipedUp) return;
 
       if (absTranslation >= thresholds[tabKey] / 2) {
@@ -68,7 +67,6 @@ export const MobileTabPanel = ({ tabKey, thresholds, swipes, toggleSwipeOf }) =>
         setTransform(`translateY(0px)`)
       }
     } else {
-      // trying to swipe down
       if (!isSwipedUp) return;
 
       if (absTranslation >= thresholds[tabKey] / 2) {
@@ -82,6 +80,18 @@ export const MobileTabPanel = ({ tabKey, thresholds, swipes, toggleSwipeOf }) =>
     setStartingPageY(0);
   }, [thresholds, startingPageY]);
 
+  const handleClick = useCallback(() => {
+    if (!canSwipe) return;
+
+    if (isSwipedUp) {
+      setTransform(`translateY(0px)`)
+    } else {
+      setTransform(`translateY(${-thresholds[tabKey]}px)`)
+    }
+
+    toggleSwipeOf(tabKey)
+  }, [isSwipedUp, tabKey, canSwipe])
+
   return (
     <div className="tab smooth-transition" style={{ transform }} id={tabKey}>
       <div className="tab-content">
@@ -90,6 +100,7 @@ export const MobileTabPanel = ({ tabKey, thresholds, swipes, toggleSwipeOf }) =>
           onTouchStart={tabTouchStart}
           onTouchMove={tabTouchMove}
           onTouchEnd={tabTouchEnd}
+          onClick={handleClick}
         >
           {tabData.tabTitle}
         </div>
@@ -104,9 +115,6 @@ export const MobileTabPanel = ({ tabKey, thresholds, swipes, toggleSwipeOf }) =>
               );
             })}
           </div>
-          <button className="editorial-font body-cta" onClick={openCalendly}>
-            I am ready
-          </button>
         </div>
       </div>
     </div>

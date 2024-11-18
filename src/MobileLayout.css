@@ -87,20 +87,14 @@
 
 .mobile-layout .tab .title-text {
   font-size: 2rem;
-  margin-bottom: 16px;
+  margin-bottom: 4px;
   line-height: 2.75rem;
 }
 
-.desktop-layout .tab .body-container {
-  position: absolute;
-  top: 0;
-  width: 50%;
-  bottom: 0;
-  left: 144px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+.mobile-layout .tab .body-container {
+  max-height: 50vh;
+  margin-top: 10vh;
+  overflow-y: auto;
 }
 
 .mobile-layout .tab .body-container .body-content {
