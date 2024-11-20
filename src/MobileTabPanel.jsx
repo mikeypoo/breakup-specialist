@@ -22,43 +22,20 @@ export const MobileTabPanel = ({
     ready: ReadyContents,
   }[tabKey];
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const isSwipedUp = useMemo(() => swipes[tabKey], [swipes]);
+  const isSwipedUp = useMemo(() => swipes[tabKey], [swipes, tabKey]);
 
   const bodyContainerClass = isSwipedUp
     ? "body-container showing"
     : "body-container";
 
-  const canSwipe = useMemo(() => {
-    let countSwiped = 0;
-
-    Object.values(swipes).forEach((swipeVal) => {
-      if (swipeVal) {
-        countSwiped += 1;
-      }
-    });
-
-    return (
-      (tabKey === "paradox" && [0, 1].includes(countSwiped)) ||
-      (tabKey === "breakup" && [1, 2].includes(countSwiped)) ||
-      (tabKey === "approach" && [2, 3].includes(countSwiped)) ||
-      (tabKey === "ready" && [3, 4].includes(countSwiped))
-    );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [swipes]);
-
   const tabData = viewModel[tabKey];
 
   const tabTouchStart = (touchStartEvent) => {
-    if (!canSwipe) return;
-
     setStartingPageY(touchStartEvent.touches[0].pageY);
   };
 
   const tabTouchMove = useCallback(
     (touchMoveEvent) => {
-      if (!canSwipe) return;
-
       const newPageY = touchMoveEvent.touches[0].pageY;
       const newTranslation = newPageY - startingPageY;
 
@@ -72,14 +49,11 @@ export const MobileTabPanel = ({
         }
       }
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [thresholds, startingPageY, isSwipedUp]
+    [startingPageY, thresholds, tabKey, isSwipedUp]
   );
 
   const tabTouchEnd = useCallback(
     (touchEndEvent) => {
-      if (!canSwipe) return;
-
       const newPageY = touchEndEvent.changedTouches[0].pageY;
       const newTranslation = newPageY - startingPageY;
       const absTranslation = Math.abs(newTranslation);
@@ -106,13 +80,10 @@ export const MobileTabPanel = ({
 
       setStartingPageY(0);
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [thresholds, startingPageY]
+    [startingPageY, isSwipedUp, thresholds, tabKey, toggleSwipeOf]
   );
 
   const handleClick = useCallback(() => {
-    if (!canSwipe) return;
-
     if (isSwipedUp) {
       setTransform(`translateY(0px)`);
     } else {
@@ -120,8 +91,7 @@ export const MobileTabPanel = ({
     }
 
     toggleSwipeOf(tabKey);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isSwipedUp, tabKey, canSwipe, thresholds]);
+  }, [isSwipedUp, tabKey, thresholds, toggleSwipeOf]);
 
   return (
     <div className="tab smooth-transition" style={{ transform }} id={tabKey}>
