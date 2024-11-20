@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AppContext } from "./AppContext";
 import { MobileTabPanel } from "./MobileTabPanel";
 import "./MobileLayout.css";
@@ -19,13 +19,13 @@ export const MobileLayout = () => {
     breakup: false,
     approach: false,
     ready: false,
-  })
+  });
 
-  const toggleSwipeOf = tabKey => {
-    const newSwipes = { ...swipes }
-    newSwipes[tabKey] = !newSwipes[tabKey]
-    setSwipes(newSwipes)
-  }
+  const toggleSwipeOf = (tabKey) => {
+    const newSwipes = { ...swipes };
+    newSwipes[tabKey] = !newSwipes[tabKey];
+    setSwipes(newSwipes);
+  };
 
   useEffect(() => {
     const windowResize = () => {
@@ -47,6 +47,7 @@ export const MobileLayout = () => {
     return () => {
       window.removeEventListener("resize", windowResize);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

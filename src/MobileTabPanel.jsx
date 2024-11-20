@@ -22,6 +22,7 @@ export const MobileTabPanel = ({
     ready: ReadyContents,
   }[tabKey];
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const isSwipedUp = useMemo(() => swipes[tabKey], [swipes]);
 
   const bodyContainerClass = isSwipedUp
@@ -43,6 +44,7 @@ export const MobileTabPanel = ({
       (tabKey === "approach" && [2, 3].includes(countSwiped)) ||
       (tabKey === "ready" && [3, 4].includes(countSwiped))
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [swipes]);
 
   const tabData = viewModel[tabKey];
@@ -70,6 +72,7 @@ export const MobileTabPanel = ({
         }
       }
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [thresholds, startingPageY, isSwipedUp]
   );
 
@@ -103,6 +106,7 @@ export const MobileTabPanel = ({
 
       setStartingPageY(0);
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [thresholds, startingPageY]
   );
 
@@ -116,6 +120,7 @@ export const MobileTabPanel = ({
     }
 
     toggleSwipeOf(tabKey);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSwipedUp, tabKey, canSwipe, thresholds]);
 
   return (
