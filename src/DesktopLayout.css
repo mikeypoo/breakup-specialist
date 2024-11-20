@@ -65,18 +65,23 @@
 }
 
 .desktop-layout #paradox {
-  left: calc(100% - 360px);
+  left: calc(100% - 480px);
   z-index: 3;
 }
 
 .desktop-layout #breakup {
-  left: calc(100% - 240px);
+  left: calc(100% - 360px);
   z-index: 4;
 }
 
 .desktop-layout #approach {
-  left: calc(100% - 120px);
+  left: calc(100% - 240px);
   z-index: 5;
+}
+
+.desktop-layout #ready {
+  left: calc(100% - 120px);
+  z-index: 6;
 }
 
 .desktop-layout .tab-content {
@@ -87,23 +92,42 @@
 
 .desktop-layout .tab .title-text {
   position: absolute;
-  top: 94%;
+  top: 92%;
   transform: rotate(-90deg) scaleY(1.2);
   transform-origin: left;
-  left: 3rem;
+  left: 3.5rem;
   font-size: 4rem;
+  cursor: pointer;
+  width: 100%;
+  padding-blocK: 16px;
 }
 
 .desktop-layout .tab .body-container {
   position: absolute;
   top: 0;
-  width: 50%;
   bottom: 0;
   left: 144px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  transition: opacity 300ms ease-out;
+}
+
+.desktop-layout .tab#paradox .body-container {
+  width: 50%
+}
+
+.desktop-layout .tab#breakup .body-container {
+  width: 60%;
+}
+
+.desktop-layout .tab#approach .body-container {
+  width: 70%;
+}
+
+.desktop-layout .tab#ready .body-container {
+  width: 80%;
 }
 
 .desktop-layout .tab .body-container .body-content {
@@ -112,7 +136,17 @@
   flex-direction: column;
   justify-content: center;
   color: var(--eerie-black);
+  width: 100%;
 }
+
+.desktop-layout .body-content-container {
+  margin-top: 24px;
+}
+
+.desktop-layout .body-content-section {
+  margin-bottom: 12px;
+}
+
 
 .desktop-layout .tab .body-container .body-title {
   font-size: 2.5rem;
@@ -145,4 +179,33 @@
   background-color: var(--eerie-black);
   color: var(--off-white);
   cursor: pointer;
+}
+
+.desktop-layout .ready-container {
+  display: flex;
+  height: 100%;
+}
+
+.desktop-layout .ready-container .ready-content {
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 24px;
+  align-items: center;
+  padding-right: 60px;
+  text-align: center;
+}
+
+.desktop-layout .ready-container .testimonial-content {
+  flex: 3;
+  border-left: 2px solid var(--eerie-black);
+  position: relative;
+}
+
+.desktop-layout .ready-container .ready-img {
+  width: 25vw;
+  height: 25vw;
+  object-fit: cover;
+  object-position: top;
 }

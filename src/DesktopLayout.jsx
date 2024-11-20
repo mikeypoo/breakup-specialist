@@ -12,6 +12,7 @@ export const DesktopLayout = () => {
     paradox: Infinity,
     breakup: Infinity,
     approach: Infinity,
+    ready: Infinity,
   });
 
   useEffect(() => {
@@ -22,7 +23,7 @@ export const DesktopLayout = () => {
         const newScroll = prevScroll - amountChanged / 20;
         let snappedScroll = newScroll;
 
-        if (newScroll >= 0 && newScroll <= thresholds.current.approach) {
+        if (newScroll >= 0 && newScroll <= thresholds.current.ready) {
           snappedScroll = newScroll;
           Object.values(thresholds.current).forEach((thresh) => {
             if (Math.abs(thresh - newScroll) < 5) {
@@ -49,7 +50,7 @@ export const DesktopLayout = () => {
 
       viewModel.tabKeys.forEach((key, idx) => {
         const el = document.getElementById(key);
-        const currentLeft = el.getBoundingClientRect().left - 20 * (idx + 1);
+        const currentLeft = el.getBoundingClientRect().left - 20 - (20 * idx);
         newThresholds[key] = rollingThreshold + currentLeft;
         rollingThreshold += currentLeft;
       });
@@ -65,6 +66,48 @@ export const DesktopLayout = () => {
       window.removeEventListener("resize", windowResize);
     };
   }, []);
+
+  const handleTabClick = (tabKey) => {
+    if (tabKey === 'paradox') {
+      if (0 <= totalScroll && totalScroll < thresholds.current['paradox']) {
+        setTotalScroll(thresholds.current[tabKey])
+      }
+
+      if (Math.abs(totalScroll - thresholds.current['paradox']) < 2) {
+        setTotalScroll(0)
+      }
+    }
+
+    if (tabKey === 'breakup') {
+      if (thresholds.current['paradox'] <= totalScroll && totalScroll < thresholds.current['breakup']) {
+        setTotalScroll(thresholds.current[tabKey])
+      }
+
+      if (Math.abs(totalScroll - thresholds.current['breakup']) < 2) {
+        setTotalScroll(thresholds.current['paradox'] + 1)
+      }
+    }
+
+    if (tabKey === 'approach') {
+      if (thresholds.current['breakup'] <= totalScroll && totalScroll < thresholds.current['approach']) {
+        setTotalScroll(thresholds.current[tabKey])
+      }
+
+      if (Math.abs(totalScroll - thresholds.current['approach']) < 2) {
+        setTotalScroll(thresholds.current['breakup'] + 1)
+      }
+    }
+
+    if (tabKey === 'ready') {
+      if (thresholds.current['approach'] <= totalScroll && totalScroll < thresholds.current['ready']) {
+        setTotalScroll(thresholds.current[tabKey])
+      }
+
+      if (Math.abs(totalScroll - thresholds.current['ready']) < 2) {
+        setTotalScroll(thresholds.current['approach'] + 1)
+      }
+    }
+  }
 
   return (
     <div className="desktop-layout">
@@ -83,6 +126,7 @@ export const DesktopLayout = () => {
           tabKey={tabKey}
           totalScroll={totalScroll}
           thresholds={thresholds.current}
+          handleTabClick={handleTabClick}
         />
       ))}
     </div>

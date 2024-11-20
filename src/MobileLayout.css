@@ -45,8 +45,8 @@
   position: absolute;
   top: 25%;
   right: 24px;
-  width: 140px;
-  height: 172px;
+  width: 37vw;
+  height: 26vh;
   object-fit: cover;
 }
 
@@ -57,7 +57,7 @@
   border-top: 2px solid var(--eerie-black);
   position: absolute;
   overflow: hidden;
-  background: rgba(241, 232, 231, 0.95);
+  background: var(--off-white-alpha);
 }
 
 .mobile-layout .tab.smooth-transition {
@@ -65,18 +65,23 @@
 }
 
 .mobile-layout #paradox {
-  top: calc(100% - 160px);
+  top: calc(100% - 208px);
   z-index: 3;
 }
 
 .mobile-layout #breakup {
-  top: calc(100% - 112px);
+  top: calc(100% - 160px);
   z-index: 4;
 }
 
 .mobile-layout #approach {
-  top: calc(100% - 64px);
+  top: calc(100% - 112px);
   z-index: 5;
+}
+
+.mobile-layout #ready {
+  top: calc(100% - 64px);
+  z-index: 6;
 }
 
 .mobile-layout .tab-content {
@@ -104,21 +109,45 @@
 .mobile-layout .tab .body-container .body-content {
   color: var(--eerie-black);
   overflow-y: auto;
-  max-height: calc(100vh - 240px);
   padding-bottom: 24px;
 	background:
 		/* Shadow covers */
-		linear-gradient(var(--off-white) 30%, rgba(255,255,255,0)),
-		linear-gradient(rgba(255,255,255,0), var(--off-white) 70%) 0 100%,
+		linear-gradient(var(--off-white) 30%, transparent),
+		linear-gradient(transparent, var(--off-white) 70%) 0 100%,
 		
 		/* Shadows */
-		radial-gradient(farthest-side at 50% 0, var(--eerie-black-alpha), rgba(0,0,0,0)),
-		radial-gradient(farthest-side at 50% 100%, var(--eerie-black-alpha), rgba(0,0,0,0)) 0 100%;
+		radial-gradient(farthest-side at 50% 0, var(--eerie-black-alpha), transparent),
+		radial-gradient(farthest-side at 50% 100%, var(--eerie-black-alpha), transparent) 0 100%;
+  background-color: transparent;
 	background-repeat: no-repeat;
 	background-size: 100% 40px, 100% 40px, 100% 14px, 100% 14px;
 	
 	/* Opera doesn't support this in the shorthand */
 	background-attachment: local, local, scroll, scroll;
+}
+
+.mobile-layout .body-content-container {
+  margin-top: 24px;
+}
+
+.mobile-layout .body-content-section {
+  margin-bottom: 12px;
+}
+
+.mobile-layout .tab#paradox .body-container .body-content {
+  max-height: calc(100vh - 288px);
+}
+
+.mobile-layout .tab#breakup .body-container .body-content {
+  max-height: calc(100vh - 248px);
+}
+
+.mobile-layout .tab#approach .body-container .body-content {
+  max-height: calc(100vh - 208px);
+}
+
+.mobile-layout .tab#ready .body-container .body-content {
+  height: calc(100vh - 168px);
 }
 
 .mobile-layout .tab .body-container .body-subtitle {
@@ -128,21 +157,37 @@
 }
 
 .mobile-layout .tab .body-container .body-cta {
-  border: 1px solid var(--eerie-black);
+  border: 2px solid var(--eerie-black);
   border-radius: 54px;
-  padding-inline: 40px;
-  padding-block: 8px;
-  font-size: 2.5rem;
-  line-height: 2.3rem;
+  width: 212px;
+  height: 50px;
+  font-size: 2rem;
+  line-height: 1.75rem;
   text-align: center;
   background-color: var(--off-white);
   transition: background-color 300ms ease-out;
   cursor: pointer;
 }
 
-.mobile-layout .tab .body-container .body-cta:hover {
-  border: 1px solid var(--off-white);
-  background-color: var(--eerie-black);
-  color: var(--off-white);
-  cursor: pointer;
+.mobile-layout .ready-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.mobile-layout .ready-container .ready-content {
+  flex: 1;
+}
+
+.mobile-layout .ready-container .testimonial-content {
+  flex: 1;
+  border-top: 2px solid var(--eerie-black);
+  position: relative;
+}
+
+.mobile-layout .ready-container .ready-img {
+  width: 56vw;
+  height: 56vw;
+  object-fit: cover;
+  object-position: top;
 }

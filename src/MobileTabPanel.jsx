@@ -1,11 +1,21 @@
 import { useCallback, useContext, useMemo, useState } from "react";
 import { AppContext } from "./AppContext";
+import { ParadoxContents } from "./ParadoxContents";
+import { ReadyContents } from "./ReadyContents";
+import { ApproachContents } from "./ApproachContents";
+import { BreakupContents } from "./BreakupContents";
 
 export const MobileTabPanel = ({ tabKey, thresholds, swipes, toggleSwipeOf }) => {
-  const { viewModel, openCalendly } = useContext(AppContext);
+  const { viewModel } = useContext(AppContext);
   const [transform, setTransform] = useState("translateY(0px)");
   const [startingPageY, setStartingPageY] = useState(0);
 
+  const Contents = {
+    paradox: ParadoxContents,
+    breakup: BreakupContents,
+    approach: ApproachContents,
+    ready: ReadyContents,
+  }[tabKey]
 
   const isSwipedUp = useMemo(() => swipes[tabKey], [swipes])
 
@@ -23,7 +33,8 @@ export const MobileTabPanel = ({ tabKey, thresholds, swipes, toggleSwipeOf }) =>
     return (
       (tabKey === 'paradox' && [0, 1].includes(countSwiped)) || 
       (tabKey === 'breakup' && [1, 2].includes(countSwiped)) || 
-      (tabKey === 'approach' && [2, 3].includes(countSwiped))
+      (tabKey === 'approach' && [2, 3].includes(countSwiped)) ||
+      (tabKey === 'ready' && [3, 4].includes(countSwiped))
     )
   }, [swipes])
 
@@ -108,15 +119,7 @@ export const MobileTabPanel = ({ tabKey, thresholds, swipes, toggleSwipeOf }) =>
         </div>
         <div className={bodyContainerClass}>
           <div className="body-font body-subtitle">{tabData.bodySubtitle}</div>
-          <div className="body-font body-content">
-            {tabData.bodyContent.map((section) => {
-              return (
-                <div style={{ marginTop: "24px" }} key={section.id}>
-                  {section.section}
-                </div>
-              );
-            })}
-          </div>
+          <div className="body-font body-content"><Contents /></div>
         </div>
       </div>
     </div>

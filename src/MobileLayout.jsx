@@ -11,12 +11,14 @@ export const MobileLayout = () => {
     paradox: Infinity,
     breakup: Infinity,
     approach: Infinity,
+    ready: Infinity,
   });
 
   const [swipes, setSwipes] = useState({
     paradox: false,
     breakup: false,
     approach: false,
+    ready: false,
   })
 
   const toggleSwipeOf = tabKey => {
@@ -29,7 +31,7 @@ export const MobileLayout = () => {
     const windowResize = () => {
       const newThresholds = { ...thresholds.current };
 
-      viewModel.tabKeys.forEach((key, idx) => {
+      tabKeys.forEach((key, idx) => {
         const el = document.getElementById(key);
         const currentTop = el.getBoundingClientRect().top - 8 * (idx + 1);
         newThresholds[key] = currentTop;

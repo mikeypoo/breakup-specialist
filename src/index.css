@@ -1,8 +1,10 @@
 :root {
   --off-white: #f1e8e7;
+  --off-white-alpha: rgba(241, 232, 231, 0.95);
   --eerie-black: #131312;
-  --eerie-black-alpha: #13131240;
+  --eerie-black-alpha: #13131220;
   --dim-gray: #696969;
+  --cotton-seed: #8c8c8c;
 }
 
 body {
