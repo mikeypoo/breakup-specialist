@@ -106,24 +106,34 @@
   transform: translateY(0px);
 }
 
-.mobile-layout .tab .body-container .body-content {
+.mobile-layout .tab:not(#ready) .body-container .body-content {
   color: var(--eerie-black);
   overflow-y: auto;
   padding-bottom: 24px;
-	background:
-		/* Shadow covers */
-		linear-gradient(var(--off-white) 30%, transparent),
-		linear-gradient(transparent, var(--off-white) 70%) 0 100%,
-		
-		/* Shadows */
-		radial-gradient(farthest-side at 50% 0, var(--eerie-black-alpha), transparent),
-		radial-gradient(farthest-side at 50% 100%, var(--eerie-black-alpha), transparent) 0 100%;
+  background:
+		/* Shadow covers */ linear-gradient(
+      var(--off-white) 30%,
+      transparent
+    ),
+    linear-gradient(transparent, var(--off-white) 70%) 0 100%,
+    /* Shadows */
+      radial-gradient(
+        farthest-side at 50% 0,
+        var(--eerie-black-alpha),
+        transparent
+      ),
+    radial-gradient(
+        farthest-side at 50% 100%,
+        var(--eerie-black-alpha),
+        transparent
+      )
+      0 100%;
   background-color: transparent;
-	background-repeat: no-repeat;
-	background-size: 100% 40px, 100% 40px, 100% 14px, 100% 14px;
-	
-	/* Opera doesn't support this in the shorthand */
-	background-attachment: local, local, scroll, scroll;
+  background-repeat: no-repeat;
+  background-size: 100% 40px, 100% 40px, 100% 14px, 100% 14px;
+
+  /* Opera doesn't support this in the shorthand */
+  background-attachment: local, local, scroll, scroll;
 }
 
 .mobile-layout .body-content-container {
@@ -135,25 +145,38 @@
 }
 
 .mobile-layout .tab#paradox .body-container .body-content {
-  max-height: calc(100vh - 288px);
+  max-height: calc(100vh - 258px);
 }
 
 .mobile-layout .tab#breakup .body-container .body-content {
-  max-height: calc(100vh - 248px);
+  max-height: calc(100vh - 218px);
 }
 
 .mobile-layout .tab#approach .body-container .body-content {
-  max-height: calc(100vh - 208px);
+  max-height: calc(100vh - 178px);
 }
 
 .mobile-layout .tab#ready .body-container .body-content {
-  height: calc(100vh - 168px);
+  height: calc(100vh - 138px);
+}
+
+.mobile-layout .tab .body-container .body-title {
+  font-family: monospace;
+  font-size: 1rem;
+  color: var(--dim-gray);
+  margin-bottom: 24px;
+  max-width: 250px;
+  text-transform: uppercase;
 }
 
 .mobile-layout .tab .body-container .body-subtitle {
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  max-width: 200px;
+  display: none;
+}
+
+.mobile-layout .ready-body-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .mobile-layout .tab .body-container .body-cta {
@@ -167,6 +190,7 @@
   background-color: var(--off-white);
   transition: background-color 300ms ease-out;
   cursor: pointer;
+  margin-bottom: 24px;
 }
 
 .mobile-layout .ready-container {
@@ -177,17 +201,70 @@
 
 .mobile-layout .ready-container .ready-content {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .mobile-layout .ready-container .testimonial-content {
   flex: 1;
   border-top: 2px solid var(--eerie-black);
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 50%;
+}
+
+.mobile-layout .current-testimonial {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-height: 60%;
+  transition: opacity 300ms ease-out;
+}
+
+.mobile-layout .current-testimonial-content {
+  text-align: left;
+  margin-bottom: 24px;
+  overflow-y: auto;
+  color: var(--eerie-black);
+  background:
+		/* Shadow covers */ linear-gradient(
+      var(--off-white) 30%,
+      transparent
+    ),
+    linear-gradient(transparent, var(--off-white) 70%) 0 100%,
+    /* Shadows */
+      radial-gradient(
+        farthest-side at 50% 0,
+        var(--eerie-black-alpha),
+        transparent
+      ),
+    radial-gradient(
+        farthest-side at 50% 100%,
+        var(--eerie-black-alpha),
+        transparent
+      )
+      0 100%;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 100% 40px, 100% 40px, 100% 14px, 100% 14px;
+
+  /* Opera doesn't support this in the shorthand */
+  background-attachment: local, local, scroll, scroll;
+}
+
+.mobile-layout .testimonial-counter {
+  color: var(--dim-gray);
+  margin-top: 12px;
+  margin-bottom: 12px;
 }
 
 .mobile-layout .ready-container .ready-img {
-  width: 56vw;
-  height: 56vw;
+  width: 40vw;
+  height: 40vw;
   object-fit: cover;
   object-position: top;
+  margin-block: 12px;
 }

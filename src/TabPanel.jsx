@@ -39,28 +39,43 @@ const transforminator = (tabKey, totalScroll, thresholds) => {
 };
 
 const opacinator = (tabKey, totalScroll, thresholds) => {
-  let opacity = 1
+  let opacity = 1;
 
-  if (tabKey === 'paradox') {
-    opacity = totalScroll / thresholds['paradox']
+  if (tabKey === "paradox") {
+    opacity = totalScroll / thresholds["paradox"];
   }
 
-  if (tabKey === 'breakup') {
-    opacity = (totalScroll - thresholds['paradox']) / (thresholds['breakup'] - thresholds['paradox'])
+  if (tabKey === "breakup") {
+    opacity =
+      (totalScroll - thresholds["paradox"]) /
+      (thresholds["breakup"] - thresholds["paradox"]);
   }
 
-  if (tabKey === 'approach') {
-    opacity = (totalScroll - thresholds['breakup']) / (thresholds['approach'] - thresholds['breakup'])
+  if (tabKey === "approach") {
+    opacity =
+      (totalScroll - thresholds["breakup"]) /
+      (thresholds["approach"] - thresholds["breakup"]);
   }
 
-  if (tabKey === 'ready') {
-    opacity = (totalScroll - thresholds['approach']) / (thresholds['ready'] - thresholds['approach'])
+  if (tabKey === "ready") {
+    opacity =
+      (totalScroll - thresholds["approach"]) /
+      (thresholds["ready"] - thresholds["approach"]);
   }
 
-  return { opacity }
-}
+  if (isNaN(opacity)) {
+    opacity = 0;
+  }
 
-export const TabPanel = ({ tabKey, totalScroll, thresholds, handleTabClick }) => {
+  return { opacity };
+};
+
+export const TabPanel = ({
+  tabKey,
+  totalScroll,
+  thresholds,
+  handleTabClick,
+}) => {
   const { viewModel, openCalendly } = useContext(AppContext);
 
   const Contents = {
@@ -68,7 +83,7 @@ export const TabPanel = ({ tabKey, totalScroll, thresholds, handleTabClick }) =>
     breakup: BreakupContents,
     approach: ApproachContents,
     ready: ReadyContents,
-  }[tabKey]
+  }[tabKey];
 
   const tabData = viewModel[tabKey];
 
@@ -78,18 +93,27 @@ export const TabPanel = ({ tabKey, totalScroll, thresholds, handleTabClick }) =>
   return (
     <div className="tab smooth-transition" style={{ transform }} id={tabKey}>
       <div className="tab-content">
-        <div className="title-text editorial-font" onClick={() => handleTabClick(tabKey)}>{tabData.tabTitle}</div>
+        <div
+          className="title-text editorial-font"
+          onClick={() => handleTabClick(tabKey)}
+        >
+          {tabData.tabTitle}
+        </div>
         <div className="body-container" style={{ opacity }}>
-          {tabKey !== 'ready' && (
+          {tabKey !== "ready" && (
             <>
-              <div className="editorial-font body-title">{tabData.bodyTitle}</div>
-              <div className="body-font body-subtitle">{tabData.bodySubtitle}</div>
+              <div className="editorial-font body-title">
+                {tabData.bodyTitle}
+              </div>
+              <div className="body-font body-subtitle">
+                {tabData.bodySubtitle}
+              </div>
             </>
           )}
           <div className="body-font body-content">
             <Contents />
           </div>
-          {tabKey !== 'ready' && (
+          {tabKey !== "ready" && (
             <button className="editorial-font body-cta" onClick={openCalendly}>
               I am ready
             </button>
