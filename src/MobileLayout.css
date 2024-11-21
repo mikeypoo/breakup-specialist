@@ -279,3 +279,16 @@
   border-radius: 50%;
   cursor: pointer;
 }
+
+.mobile-layout .butterfly {
+  width: 40vw;
+  height: 40vw;
+  object-fit: cover;
+  margin-bottom: 40px;
+  filter: grayscale();
+  transition: filter 600ms ease-out;
+}
+
+.mobile-layout .butterfly:active {
+  filter: none;
+}

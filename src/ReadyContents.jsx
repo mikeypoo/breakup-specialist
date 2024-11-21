@@ -11,10 +11,17 @@ export const ReadyContents = () => {
   return (
     <div className="ready-container">
       <div className="ready-content">
-        <img
+        {/* <img
           src={viewModel.ready.imgSrc}
           className="ready-img"
           alt="I am ready"
+        /> */}
+        <video
+          src={viewModel.ready.videoSrc}
+          className="butterfly"
+          autoPlay
+          muted
+          loop
         />
         <div className="ready-body-container">
           <div className="editorial-font body-title">
