@@ -11,12 +11,12 @@
 
 .mobile-layout {
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   position: fixed;
 }
 
 .mobile-layout .home-content {
-  height: 100vh;
+  height: 100dvh;
   position: relative;
 }
 
@@ -46,7 +46,7 @@
   top: 25%;
   right: 24px;
   width: 37vw;
-  height: 26vh;
+  height: 26dvh;
   object-fit: cover;
 }
 
@@ -145,19 +145,19 @@
 }
 
 .mobile-layout .tab#paradox .body-container .body-content {
-  max-height: calc(100vh - 258px);
+  max-height: calc(100dvh - 258px);
 }
 
 .mobile-layout .tab#breakup .body-container .body-content {
-  max-height: calc(100vh - 218px);
+  max-height: calc(100dvh - 218px);
 }
 
 .mobile-layout .tab#approach .body-container .body-content {
-  max-height: calc(100vh - 178px);
+  max-height: calc(100dvh - 178px);
 }
 
 .mobile-layout .tab#ready .body-container .body-content {
-  height: calc(100vh - 138px);
+  height: calc(100dvh - 138px);
 }
 
 .mobile-layout .tab .body-container .body-title {
@@ -220,7 +220,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  max-height: 55%;
+  max-height: 50%;
   transition: opacity 300ms ease-out;
 }
 
@@ -284,7 +284,7 @@
   width: 40vw;
   height: 40vw;
   object-fit: cover;
-  margin-bottom: 40px;
+  margin-bottom: 24px;
   filter: grayscale();
   transition: filter 600ms ease-out;
 }
