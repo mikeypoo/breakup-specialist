@@ -100,6 +100,7 @@
   cursor: pointer;
   width: 100%;
   padding-block: 16px;
+  user-select: none;
 }
 
 .desktop-layout .tab .body-container {
@@ -230,6 +231,9 @@
 .desktop-layout .testimonial-counter {
   color: var(--dim-gray);
   margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
 .desktop-layout .ready-container .ready-img {
@@ -238,4 +242,15 @@
   object-fit: cover;
   object-position: top;
   margin-bottom: 40px;
+}
+
+.desktop-layout .testimonial-arrow {
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.desktop-layout .testimonial-arrow:hover {
+  fill: var(--dim-gray);
 }

@@ -1,29 +1,12 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { AppContext } from "./AppContext";
-
-const fadeyTime = 500;
-const showyTime = 7500;
+import { ArrowSvg } from "./ArrowSvg";
 
 export const ReadyContents = () => {
   const { openCalendly, viewModel } = useContext(AppContext);
   const [testimonialIndex, setTestimonialIndex] = useState(0);
-  const [fadeOut, setFadeOut] = useState(false);
 
   const { content, name, key } = viewModel.testimonials[testimonialIndex];
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setFadeOut(true);
-      setTimeout(() => {
-        setTestimonialIndex(
-          (prevIndex) => (prevIndex + 1) % viewModel.testimonials.length
-        );
-      }, fadeyTime);
-      setTimeout(() => setFadeOut(false), fadeyTime);
-    }, showyTime);
-
-    return () => clearInterval(intervalId);
-  }, [viewModel.testimonials.length]);
 
   return (
     <div className="ready-container">
@@ -53,12 +36,26 @@ export const ReadyContents = () => {
           Testimonials
         </div>
         <div className="testimonial-counter">
+          <ArrowSvg
+            onClick={() =>
+              setTestimonialIndex(
+                (prev) =>
+                  (prev - 1 + viewModel.testimonials.length) %
+                  viewModel.testimonials.length
+              )
+            }
+          />
           {key}/{viewModel.testimonials.length}
+          <ArrowSvg
+            isRight
+            onClick={() =>
+              setTestimonialIndex(
+                (prev) => (prev + 1) % viewModel.testimonials.length
+              )
+            }
+          />
         </div>
-        <div
-          className="current-testimonial"
-          style={{ opacity: fadeOut ? 0 : 1 }}
-        >
+        <div className="current-testimonial">
           <div className="current-testimonial-content">{content}</div>
           <div className="current-testimonial-name">-{name}</div>
         </div>

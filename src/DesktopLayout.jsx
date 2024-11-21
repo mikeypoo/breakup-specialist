@@ -69,22 +69,28 @@ export const DesktopLayout = () => {
   }, []);
 
   const handleTabClick = (tabKey) => {
-    if (tabKey === "paradox") {
-      if (0 <= totalScroll && totalScroll < thresholds.current["paradox"]) {
-        setTotalScroll(thresholds.current[tabKey]);
-      }
+    const delay = 150;
 
-      if (Math.abs(totalScroll - thresholds.current["paradox"]) < 2) {
-        setTotalScroll(0);
+    if (tabKey === "paradox") {
+      if (totalScroll < thresholds.current["breakup"]) {
+        setTotalScroll(thresholds.current[tabKey]);
+
+        if (Math.abs(totalScroll - thresholds.current["paradox"]) < 2) {
+          setTotalScroll(0);
+        }
       }
     }
 
     if (tabKey === "breakup") {
-      if (
-        thresholds.current["paradox"] <= totalScroll &&
-        totalScroll < thresholds.current["breakup"]
-      ) {
-        setTotalScroll(thresholds.current[tabKey]);
+      if (totalScroll < thresholds.current["breakup"]) {
+        if (totalScroll >= thresholds.current["paradox"]) {
+          setTotalScroll(thresholds.current[tabKey]);
+        } else {
+          setTimeout(() => {
+            setTotalScroll(thresholds.current[tabKey]);
+          }, delay);
+          setTotalScroll(thresholds.current["paradox"]);
+        }
       }
 
       if (Math.abs(totalScroll - thresholds.current["breakup"]) < 2) {
@@ -93,11 +99,23 @@ export const DesktopLayout = () => {
     }
 
     if (tabKey === "approach") {
-      if (
-        thresholds.current["breakup"] <= totalScroll &&
-        totalScroll < thresholds.current["approach"]
-      ) {
-        setTotalScroll(thresholds.current[tabKey]);
+      if (totalScroll < thresholds.current["approach"]) {
+        if (totalScroll >= thresholds.current["breakup"]) {
+          setTotalScroll(thresholds.current[tabKey]);
+        } else if (totalScroll >= thresholds.current["paradox"]) {
+          setTotalScroll(thresholds.current["breakup"]);
+          setTimeout(() => {
+            setTotalScroll(thresholds.current[tabKey]);
+          }, delay);
+        } else {
+          setTotalScroll(thresholds.current["paradox"]);
+          setTimeout(() => {
+            setTotalScroll(thresholds.current["breakup"]);
+          }, delay);
+          setTimeout(() => {
+            setTotalScroll(thresholds.current[tabKey]);
+          }, delay * 2);
+        }
       }
 
       if (Math.abs(totalScroll - thresholds.current["approach"]) < 2) {
@@ -106,11 +124,34 @@ export const DesktopLayout = () => {
     }
 
     if (tabKey === "ready") {
-      if (
-        thresholds.current["approach"] <= totalScroll &&
-        totalScroll < thresholds.current["ready"]
-      ) {
-        setTotalScroll(thresholds.current[tabKey]);
+      if (totalScroll < thresholds.current["ready"]) {
+        if (totalScroll >= thresholds.current["approach"]) {
+          setTotalScroll(thresholds.current[tabKey]);
+        } else if (totalScroll >= thresholds.current["breakup"]) {
+          setTotalScroll(thresholds.current["approach"]);
+          setTimeout(() => {
+            setTotalScroll(thresholds.current[tabKey]);
+          }, delay);
+        } else if (totalScroll >= thresholds.current["paradox"]) {
+          setTotalScroll(thresholds.current["breakup"]);
+          setTimeout(() => {
+            setTotalScroll(thresholds.current["approach"]);
+          }, delay);
+          setTimeout(() => {
+            setTotalScroll(thresholds.current[tabKey]);
+          }, delay * 2);
+        } else {
+          setTotalScroll(thresholds.current["paradox"]);
+          setTimeout(() => {
+            setTotalScroll(thresholds.current["breakup"]);
+          }, delay);
+          setTimeout(() => {
+            setTotalScroll(thresholds.current["approach"]);
+          }, delay * 2);
+          setTimeout(() => {
+            setTotalScroll(thresholds.current[tabKey]);
+          }, delay * 3);
+        }
       }
 
       if (Math.abs(totalScroll - thresholds.current["ready"]) < 2) {
