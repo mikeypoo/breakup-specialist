@@ -10,7 +10,10 @@
 
 @font-face {
   font-family: "EditorialNew";
-  src: url("../public/EditorialNew-Regular.woff2") format("woff2");
+  src: url("../public/EditorialNew-Regular.woff2") format("woff2"),
+       url("../public/EditorialNew-Regular.woff") format("woff"),
+       url("../public/EditorialNew-Regular.ttf") format("truetype"),
+       url("../public/EditorialNew-Regular.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
