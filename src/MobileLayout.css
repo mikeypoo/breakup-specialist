@@ -106,7 +106,7 @@
   transform: translateY(0px);
 }
 
-.mobile-layout .tab:not(#ready) .body-container .body-content {
+.mobile-layout .tab .body-container .body-content {
   color: var(--eerie-black);
   overflow-y: auto;
   padding-bottom: 24px;
@@ -219,40 +219,13 @@
 .mobile-layout .current-testimonial {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  max-height: 50%;
   transition: opacity 300ms ease-out;
 }
 
 .mobile-layout .current-testimonial-content {
   text-align: left;
   margin-bottom: 24px;
-  overflow-y: auto;
   color: var(--eerie-black);
-  background:
-		/* Shadow covers */ linear-gradient(
-      var(--off-white) 30%,
-      transparent
-    ),
-    linear-gradient(transparent, var(--off-white) 70%) 0 100%,
-    /* Shadows */
-      radial-gradient(
-        farthest-side at 50% 0,
-        var(--eerie-black-alpha),
-        transparent
-      ),
-    radial-gradient(
-        farthest-side at 50% 100%,
-        var(--eerie-black-alpha),
-        transparent
-      )
-      0 100%;
-  background-color: transparent;
-  background-repeat: no-repeat;
-  background-size: 100% 40px, 100% 40px, 100% 14px, 100% 14px;
-
-  /* Opera doesn't support this in the shorthand */
-  background-attachment: local, local, scroll, scroll;
 }
 
 .mobile-layout .testimonial-counter {
