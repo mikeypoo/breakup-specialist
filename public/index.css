@@ -18,8 +18,7 @@
   font-family: "EditorialNew";
   src: url("/EditorialNew-Regular.woff") format("woff"),
        url("/EditorialNew-Regular.ttf") format("truetype"),
-       url("/EditorialNew-Regular.otf") format("opentype"),
-       url("/EditorialNew-Regular.woff2") format("woff2");
+       url("/EditorialNew-Regular.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
