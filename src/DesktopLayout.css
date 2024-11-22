@@ -1,5 +1,5 @@
 .desktop-layout .editorial-font {
-  font-family: "Editorial New";
+  font-family: "EditorialNew";
   color: var(--eerie-black);
   letter-spacing: -1px;
 }
@@ -26,9 +26,9 @@
   position: absolute;
   z-index: 2;
   padding: 40px;
+  padding-top: 60px;
   max-width: 100px;
-  line-height: 6rem;
-  transform: scaleY(1.2);
+  line-height: 7rem;
 }
 
 .desktop-layout .home-content-name {
@@ -93,9 +93,9 @@
 .desktop-layout .tab .title-text {
   position: absolute;
   top: 92%;
-  transform: rotate(-90deg) scaleY(1.2);
+  transform: rotate(-90deg);
   transform-origin: left;
-  left: 3.5rem;
+  left: 4.2rem;
   font-size: 4rem;
   cursor: pointer;
   width: 100%;
@@ -156,10 +156,8 @@
 
 .desktop-layout .tab .body-container .body-title {
   font-size: 2.5rem;
-  transform: scaleY(1.2);
   margin-bottom: 8px;
   max-width: 420px;
-  line-height: 2.2rem;
 }
 
 .desktop-layout .tab .body-container .body-subtitle {
@@ -173,9 +171,8 @@
   border: 1px solid var(--eerie-black);
   border-radius: 54px;
   padding-inline: 40px;
-  padding-block: 8px;
+  padding-top: 8px;
   font-size: 2.5rem;
-  line-height: 2.3rem;
   text-align: center;
   background-color: var(--off-white);
   transition: background-color 300ms ease-out;

@@ -32,13 +32,12 @@
 
 .mobile-layout .home-content-name {
   transform-origin: top;
-  transform: scaleY(1.2);
 }
 
 .mobile-layout .home-content-title {
   bottom: 50%;
   transform-origin: top;
-  transform: scaleY(1.2) translateY(35%);
+  transform: translateY(35%);
 }
 
 .mobile-layout .home-content-img {
