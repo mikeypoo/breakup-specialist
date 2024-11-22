@@ -1,5 +1,5 @@
 .mobile-layout .editorial-font {
-  font-family: "Editorial New";
+  font-family: "EditorialNew";
   color: var(--eerie-black);
   letter-spacing: -1px;
 }
@@ -27,7 +27,7 @@
   z-index: 2;
   padding: 20px;
   max-width: 100px;
-  line-height: 4rem;
+  line-height: 5rem;
 }
 
 .mobile-layout .home-content-name {
@@ -91,7 +91,7 @@
 
 .mobile-layout .tab .title-text {
   font-size: 2rem;
-  line-height: 2.75rem;
+  line-height: 3.2rem;
 }
 
 .mobile-layout .tab .body-container {
@@ -184,12 +184,12 @@
   width: 212px;
   height: 50px;
   font-size: 2rem;
-  line-height: 1.75rem;
   text-align: center;
   background-color: var(--off-white);
   transition: background-color 300ms ease-out;
   cursor: pointer;
   margin-bottom: 24px;
+  padding-top: 4px;
 }
 
 .mobile-layout .ready-container {
