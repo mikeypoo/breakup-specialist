@@ -7,6 +7,24 @@
   --cotton-seed: #8c8c8c;
 }
 
+@font-face {
+  font-family: "Sohne";
+  src: url("/soehne-kraftig.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "EditorialNew";
+  src: url("/EditorialNew-Regular.woff") format("woff"),
+       url("/EditorialNew-Regular.ttf") format("truetype"),
+       url("/EditorialNew-Regular.otf") format("opentype");
+       url("/EditorialNew-Regular.woff2") format("woff2"),
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -20,3 +38,4 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
