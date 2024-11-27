@@ -16,37 +16,67 @@
 }
 
 .mobile-layout .home-content {
-  height: 100dvh;
-  position: relative;
+  height: 60dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media (orientation: landscape) {
+  .mobile-layout .home-content {
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
 }
 
 .mobile-layout .home-content-name,
 .mobile-layout .home-content-title {
-  font-size: 5rem;
-  position: absolute;
-  z-index: 2;
+  font-size: calc(6vw + 6vh);
+  line-height: calc(6vw + 6vh);
   padding: 20px;
   max-width: 100px;
-  line-height: 5rem;
 }
 
-.mobile-layout .home-content-name {
-  transform-origin: top;
+@media (orientation: landscape) {
+  .mobile-layout .home-content-name,
+  .mobile-layout .home-content-title {
+    max-width: unset;
+  }
 }
 
-.mobile-layout .home-content-title {
-  bottom: 50%;
-  transform-origin: top;
-  transform: translateY(35%);
+.mobile-layout .home-content-img-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -10vw;
+  margin-bottom: -14vw;
+  margin-right: 8vw;
+}
+
+@media (orientation: landscape) {
+  .mobile-layout .home-content-img-container {
+    display: inline;
+    margin-top: 2vh;
+    margin-left: -20vw;
+    margin-right: 0;
+  }
 }
 
 .mobile-layout .home-content-img {
-  position: absolute;
-  top: 25%;
-  right: 24px;
-  width: 37vw;
-  height: 26dvh;
+  width: 42vw;
+  height: 31dvh;
   object-fit: cover;
+  object-position: top;
+  opacity: 0.8;
+}
+
+@media (orientation: landscape) {
+  .mobile-layout .home-content-img {
+    object-fit: contain;
+    height: 38dvh;
+    width: auto;
+  }
 }
 
 .mobile-layout .tab {
@@ -96,13 +126,11 @@
 
 .mobile-layout .tab .body-container {
   opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 300ms 300ms ease-out, transform 300ms 300ms ease-out;
+  transition: opacity 300ms 300ms ease-out;
 }
 
 .mobile-layout .tab .body-container.showing {
   opacity: 1;
-  transform: translateY(0px);
 }
 
 .mobile-layout .tab .body-container .body-content {
@@ -143,6 +171,10 @@
   margin-bottom: 12px;
 }
 
+.mobile-layout .body-content-section:last-child {
+  margin-bottom: 62px;
+}
+
 .mobile-layout .tab#paradox .body-container .body-content {
   max-height: calc(100dvh - 258px);
 }
@@ -169,7 +201,15 @@
 }
 
 .mobile-layout .tab .body-container .body-subtitle {
-  display: none;
+  font-size: 3.5vw;
+  text-transform: uppercase;
+  max-width: 45vw;
+}
+
+@media (orientation: landscape) {
+  .mobile-layout .tab .body-container .body-subtitle {
+    font-size: 3.5vh;
+  }
 }
 
 .mobile-layout .ready-body-container {
@@ -235,6 +275,7 @@
   display: flex;
   align-items: center;
   gap: 16px;
+  user-select: none;
 }
 
 .mobile-layout .ready-container .ready-img {
@@ -253,6 +294,7 @@
 }
 
 .mobile-layout .butterfly {
+  max-width: 100%;
   width: 40vw;
   height: 40vw;
   object-fit: cover;

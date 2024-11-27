@@ -11,11 +11,6 @@ export const ReadyContents = () => {
   return (
     <div className="ready-container">
       <div className="ready-content">
-        {/* <img
-          src={viewModel.ready.imgSrc}
-          className="ready-img"
-          alt="I am ready"
-        /> */}
         <video
           src={viewModel.ready.videoSrc}
           className="butterfly"
@@ -26,9 +21,6 @@ export const ReadyContents = () => {
         <div className="ready-body-container">
           <div className="editorial-font body-title">
             {viewModel.ready.bodyTitle}
-          </div>
-          <div className="body-font body-subtitle">
-            {viewModel.ready.bodySubtitle}
           </div>
         </div>
         <button className="editorial-font body-cta" onClick={openCalendly}>

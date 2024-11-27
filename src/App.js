@@ -7,11 +7,13 @@ import { viewModel } from "./viewModel";
 
 const MOBILE_THRESH = 1060;
 
+const isMobileOrTouch = () => {
+  return window.innerWidth < MOBILE_THRESH || window.matchMedia("(pointer: coarse)").matches
+}
+
 const App = () => {
   const [theme, setTheme] = useState("dark");
-  const [isMobileView, setIsMobileView] = useState(
-    window.innerWidth < MOBILE_THRESH
-  );
+  const [isMobileView, setIsMobileView] = useState(isMobileOrTouch());
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
@@ -19,7 +21,7 @@ const App = () => {
 
   useEffect(() => {
     const updateSize = () => {
-      setIsMobileView(window.innerWidth < MOBILE_THRESH);
+      setIsMobileView(isMobileOrTouch());
     };
     window.addEventListener("resize", updateSize);
     updateSize();

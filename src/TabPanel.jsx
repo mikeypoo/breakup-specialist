@@ -38,38 +38,6 @@ const transforminator = (tabKey, totalScroll, thresholds) => {
   return { transform };
 };
 
-const opacinator = (tabKey, totalScroll, thresholds) => {
-  let opacity = 1;
-
-  if (tabKey === "paradox") {
-    opacity = totalScroll / thresholds["paradox"];
-  }
-
-  if (tabKey === "breakup") {
-    opacity =
-      (totalScroll - thresholds["paradox"]) /
-      (thresholds["breakup"] - thresholds["paradox"]);
-  }
-
-  if (tabKey === "approach") {
-    opacity =
-      (totalScroll - thresholds["breakup"]) /
-      (thresholds["approach"] - thresholds["breakup"]);
-  }
-
-  if (tabKey === "ready") {
-    opacity =
-      (totalScroll - thresholds["approach"]) /
-      (thresholds["ready"] - thresholds["approach"]);
-  }
-
-  if (isNaN(opacity)) {
-    opacity = 0;
-  }
-
-  return { opacity };
-};
-
 export const TabPanel = ({
   tabKey,
   totalScroll,
@@ -88,7 +56,6 @@ export const TabPanel = ({
   const tabData = viewModel[tabKey];
 
   let { transform } = transforminator(tabKey, totalScroll, thresholds);
-  let { opacity } = opacinator(tabKey, totalScroll, thresholds);
 
   return (
     <div className="tab smooth-transition" style={{ transform }} id={tabKey}>
@@ -99,7 +66,7 @@ export const TabPanel = ({
         >
           {tabData.tabTitle}
         </div>
-        <div className="body-container" style={{ opacity }}>
+        <div className="body-container">
           {tabKey !== "ready" && (
             <>
               <div className="editorial-font body-title">

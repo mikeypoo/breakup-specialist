@@ -56,10 +56,12 @@ export const MobileLayout = () => {
         <div className="home-content-name">
           {home.firstName} {home.lastName}
         </div>
+        <div className="home-content-img-container">
+          <img className="home-content-img" src={home.mobileImgSrc} alt="home" />
+        </div>
         <div className="home-content-title">
           {home.titleTop} {home.titleBottom}
         </div>
-        <img className="home-content-img" src={home.mobileImgSrc} alt="home" />
       </div>
       {tabKeys.map((tabKey) => (
         <MobileTabPanel

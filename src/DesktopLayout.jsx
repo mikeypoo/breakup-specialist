@@ -15,12 +15,13 @@ export const DesktopLayout = () => {
     ready: Infinity,
   });
 
+  // 1512 823
+
   useEffect(() => {
     const onScroll = (scrollEvent) => {
       const { wheelDeltaY: amountChanged } = scrollEvent;
-
       setTotalScroll((prevScroll) => {
-        const newScroll = prevScroll - amountChanged / 20;
+        const newScroll = prevScroll - amountChanged / 5;
         let snappedScroll = newScroll;
 
         if (newScroll >= 0 && newScroll <= thresholds.current.ready) {
@@ -161,25 +162,27 @@ export const DesktopLayout = () => {
   };
 
   return (
-    <div className="desktop-layout">
-      <div className="home-content editorial-font">
-        <div className="home-content-name">
-          {home.firstName} {home.lastName}
+    <>
+      <div className="desktop-layout">
+        <div className="home-content editorial-font">
+          <div className="home-content-name">
+            {home.firstName} {home.lastName}
+          </div>
+          <div className="home-content-title">
+            {home.titleTop} {home.titleBottom}
+          </div>
+          <img className="home-content-img" src={home.imgSrc} alt="home" />
         </div>
-        <div className="home-content-title">
-          {home.titleTop} {home.titleBottom}
-        </div>
-        <img className="home-content-img" src={home.imgSrc} alt="home" />
+        {tabKeys.map((tabKey) => (
+          <TabPanel
+            key={tabKey}
+            tabKey={tabKey}
+            totalScroll={totalScroll}
+            thresholds={thresholds.current}
+            handleTabClick={handleTabClick}
+          />
+        ))}
       </div>
-      {tabKeys.map((tabKey) => (
-        <TabPanel
-          key={tabKey}
-          tabKey={tabKey}
-          totalScroll={totalScroll}
-          thresholds={thresholds.current}
-          handleTabClick={handleTabClick}
-        />
-      ))}
-    </div>
+    </>
   );
 };

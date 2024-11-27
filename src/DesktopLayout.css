@@ -22,13 +22,13 @@
 
 .desktop-layout .home-content-name,
 .desktop-layout .home-content-title {
-  font-size: 8rem;
+  font-size: calc(6vw + 6vh);
+  line-height: calc(6vw + 6vh);
   position: absolute;
   z-index: 2;
-  padding: 40px;
-  padding-top: 60px;
+  padding: 2vw;
+  padding-top: 3vw;
   max-width: 100px;
-  line-height: 7rem;
 }
 
 .desktop-layout .home-content-name {
@@ -42,8 +42,8 @@
 
 .desktop-layout .home-content-img {
   position: absolute;
-  width: 373px;
-  height: 459px;
+  width: 26vw;
+  height: 56dvh;
   object-fit: cover;
   top: 50%;
   right: 50%;
@@ -51,13 +51,13 @@
 }
 
 .desktop-layout .tab {
-  height: calc(100% - 80px);
+  height: calc(100% - 4vw);
   width: 100vw;
-  border-left: 2px solid var(--eerie-black);
+  border-left: 0.15vw solid var(--eerie-black);
   position: absolute;
   overflow: hidden;
   background: rgba(241, 232, 231, 0.95);
-  top: 40px;
+  top: 2vw;
 }
 
 .desktop-layout .tab.smooth-transition {
@@ -65,22 +65,22 @@
 }
 
 .desktop-layout #paradox {
-  left: calc(100% - 480px);
+  left: calc(100% - 32%);
   z-index: 3;
 }
 
 .desktop-layout #breakup {
-  left: calc(100% - 360px);
+  left: calc(100% - 24%);
   z-index: 4;
 }
 
 .desktop-layout #approach {
-  left: calc(100% - 240px);
+  left: calc(100% - 16%);
   z-index: 5;
 }
 
 .desktop-layout #ready {
-  left: calc(100% - 120px);
+  left: calc(100% - 8%);
   z-index: 6;
 }
 
@@ -95,8 +95,8 @@
   top: 92%;
   transform: rotate(-90deg);
   transform-origin: left;
-  left: 4.2rem;
-  font-size: 4rem;
+  font-size: calc(3vh + 3vw);
+  left: calc(3vh + 3vw);
   cursor: pointer;
   width: 100%;
   padding-block: 16px;
@@ -107,7 +107,7 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 144px;
+  left: 10vw;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -128,7 +128,7 @@
 }
 
 .desktop-layout .tab#ready .body-container {
-  width: 80%;
+  width: 83%;
 }
 
 .desktop-layout .tab .body-container .body-content {
@@ -138,12 +138,22 @@
   justify-content: center;
   color: var(--eerie-black);
   width: 100%;
+  font-size: 1vw;
 }
 
 .desktop-layout .ready-body-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.desktop-layout .body-content-row {
+  display: flex;
+  gap: 4vw;
+}
+
+.desktop-layout .body-content-column {
+  flex: 1;
 }
 
 .desktop-layout .body-content-container {
@@ -155,32 +165,32 @@
 }
 
 .desktop-layout .tab .body-container .body-title {
-  font-size: 2.5rem;
+  font-size: 2.65vw;
   margin-bottom: 8px;
-  max-width: 420px;
 }
 
 .desktop-layout .tab .body-container .body-subtitle {
-  font-size: 1rem;
+  font-size: 1.05vw;
   text-transform: uppercase;
-  max-width: 250px;
+  max-width: 17vw;
   text-align: center;
 }
 
 .desktop-layout .tab .body-container .body-cta {
-  border: 1px solid var(--eerie-black);
-  border-radius: 54px;
-  padding-inline: 40px;
-  padding-top: 8px;
-  font-size: 2.5rem;
+  border: 0.1vw solid var(--eerie-black);
+  border-radius: 2.5vw;
+  padding-inline: 3vw;
+  padding-top: 0.4vw;
+  font-size: 3vw;
   text-align: center;
   background-color: var(--off-white);
   transition: background-color 300ms ease-out;
   cursor: pointer;
+  margin-bottom: 0.1vw;
 }
 
 .desktop-layout .tab .body-container .body-cta:hover {
-  border: 1px solid var(--off-white);
+  border: 0.1vw solid var(--off-white);
   background-color: var(--eerie-black);
   color: var(--off-white);
   cursor: pointer;
@@ -204,9 +214,9 @@
 
 .desktop-layout .ready-container .testimonial-content {
   flex: 3;
-  border-left: 2px solid var(--eerie-black);
+  border-left: 0.15vw solid var(--eerie-black);
   position: relative;
-  padding-top: 24px;
+  padding-top: 2vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -216,21 +226,23 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-inline: 24px;
+  padding-left: 1.5vw;
   transition: opacity 300ms ease-out;
 }
 
 .desktop-layout .current-testimonial-content {
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: 2vw;
 }
 
 .desktop-layout .testimonial-counter {
   color: var(--dim-gray);
-  margin-bottom: 24px;
+  margin-bottom: 2vw;
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 1vw;
+  user-select: none;
+  font-size: 1.1vw;
 }
 
 .desktop-layout .ready-container .ready-img {
@@ -238,14 +250,14 @@
   height: 25vw;
   object-fit: cover;
   object-position: top;
-  margin-bottom: 40px;
+  margin-bottom: 2vw;
 }
 
 .desktop-layout .butterfly {
   width: 25vw;
   height: 25vw;
   object-fit: cover;
-  margin-bottom: 40px;
+  margin-bottom: 2vw;
   filter: grayscale();
   transition: filter 600ms ease-out;
 }
@@ -255,8 +267,8 @@
 }
 
 .desktop-layout .testimonial-arrow {
-  height: 24px;
-  width: 24px;
+  height: 1.5vw;
+  width: 1.5vw;
   border-radius: 50%;
   cursor: pointer;
 }
@@ -264,3 +276,4 @@
 .desktop-layout .testimonial-arrow:hover {
   fill: var(--dim-gray);
 }
+
