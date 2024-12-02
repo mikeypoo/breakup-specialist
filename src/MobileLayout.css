@@ -239,6 +239,17 @@
   line-height: 7vw;
 }
 
+@media (orientation: landscape) {
+  .mobile-layout .body-content-section.big-font {
+    font-size: 5vh;
+    line-height: 7vh;
+  }
+
+  .mobile-layout .body-content-section {
+    margin-bottom: 8vh;
+  }
+}
+
 .mobile-layout .body-content-section.gray-font {
   color: var(--dim-gray);
 }
@@ -389,6 +400,13 @@
   transition: filter 600ms ease-out;
 }
 
+@media (orientation: landscape) {
+  .mobile-layout .butterfly {
+    width: 40vh;
+    height: 40vh;
+  }
+}
+
 .mobile-layout .butterfly:active {
   filter: none;
 }
@@ -409,3 +427,23 @@
   font-size: 3vw;
   line-height: 4.5vw;
 }
+
+@media (orientation: landscape) {
+  .mobile-layout .approach-header {
+    display: flex;
+    align-items: top;
+    gap: 4vh;
+  }
+
+  .mobile-layout .approach-img {
+    width: 40vh;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  .mobile-layout .approach-header-text {
+    font-size: 5vh;
+    line-height: 7vh;
+  }
+}
+
