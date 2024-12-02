@@ -10,7 +10,7 @@ export const BreakupContents = () => {
                   You know life is about more than ascending ladders. It’s about where you live emotionally, relationally, and mentally. And if these things are in a state of dysfunction, it can be impossible to enjoy what you’ve built.
               </div>
               <div className="body-content-section">
-                  If you’re feeling estranged from the dynamic buzz of creativity, levity, and hope that you once had, <em>it’s time for a breakup.</em>
+                  If you’re feeling estranged from the dynamic buzz of creativity, levity, and hope that you once had, it’s time for a breakup.
               </div>
             </div>
           </div>
@@ -22,7 +22,7 @@ export const BreakupContents = () => {
               <div className="body-content-section">
                   Not everyone is ready. But if you’re willing to trade familiarity for focused, fearless expansion, you’re not everyone.
               </div>
-              <div className="body-content-section">
+              <div className="body-content-section big-font">
                   You’re breakup material.
               </div>
             </div>

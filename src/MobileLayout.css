@@ -52,6 +52,7 @@
   margin-top: -10vw;
   margin-bottom: -14vw;
   margin-right: 8vw;
+  position: relative;
 }
 
 @media (orientation: landscape) {
@@ -77,6 +78,20 @@
     height: 38dvh;
     width: auto;
   }
+}
+
+.mobile-layout .home-content-subtitle {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  max-width: 75vw;
+  transform: translateY(-50%) translateX(-47%);
+  z-index: 2;
+  font-size: 4.5vw;
+  left: 50%;
+  color: var(--auburn);
+  font-family: monospace;
+  text-align: center;
 }
 
 .mobile-layout .tab {

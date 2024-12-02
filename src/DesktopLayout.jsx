@@ -15,8 +15,6 @@ export const DesktopLayout = () => {
     ready: Infinity,
   });
 
-  // 1512 823
-
   useEffect(() => {
     const onScroll = (scrollEvent) => {
       const { wheelDeltaY: amountChanged } = scrollEvent;
@@ -170,6 +168,9 @@ export const DesktopLayout = () => {
           </div>
           <div className="home-content-title">
             {home.titleTop} {home.titleBottom}
+          </div>
+          <div className="home-content-subtitle">
+            {home.subtitleShort}
           </div>
           <img className="home-content-img" src={home.imgSrc} alt="home" />
         </div>

@@ -58,6 +58,7 @@ export const MobileLayout = () => {
         </div>
         <div className="home-content-img-container">
           <img className="home-content-img" src={home.mobileImgSrc} alt="home" />
+          <div className="home-content-subtitle">{home.subtitleShort}</div>
         </div>
         <div className="home-content-title">
           {home.titleTop} {home.titleBottom}

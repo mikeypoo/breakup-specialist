@@ -7,6 +7,8 @@ export const viewModel = {
     titleBottom: "Artist",
     imgSrc: "home_2.jpeg",
     mobileImgSrc: "home_2.jpeg",
+    subtitle: "Access the happiness and fulfillment you thought your success would provide by breaking up with the people, places, and patterns that drain your vitality.",
+    subtitleShort: "Break up with the people, places, and patterns that drain your vitality.",
   },
   paradox: {
     tabTitle: "The Success Paradox",
@@ -96,6 +98,7 @@ export const viewModel = {
     tabTitle: "My Approach",
     bodyTitle: "Why Elizabeth?",
     bodySubtitle: "Partner in transformational growth",
+    imgSrc: "home_1.jpeg",
     bodyContent: [
       {
         id: 1,
