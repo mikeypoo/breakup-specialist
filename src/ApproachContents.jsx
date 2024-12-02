@@ -11,7 +11,7 @@ export const ApproachContents = () => {
               <div className="body-content-container">
                 <div className="body-content-section">
                   <div className="approach-header">
-                    <img className="approach-img" src={viewModel.approach.imgSrc} />
+                    <img alt="Why Elizabeth?" className="approach-img" src={viewModel.approach.imgSrc} />
                     <div className="approach-header-text">
                     You don’t just need a coach—you need someone who can look at your successes, struggles, and story and see two things: The common thread of authenticity that’s been buried, and the common thread of INauthenticity that’s got you stuck.
                     </div>
