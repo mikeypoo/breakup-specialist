@@ -77,6 +77,40 @@ export const DesktopLayout = () => {
         if (Math.abs(totalScroll - thresholds.current["paradox"]) < 2) {
           setTotalScroll(0);
         }
+      } else {
+        if (totalScroll < thresholds.current["approach"]) {
+          if (totalScroll === thresholds.current["breakup"]) {
+            setTotalScroll(thresholds.current["paradox"] + 1);
+          } else {
+            setTotalScroll(thresholds.current["breakup"] + 1);
+            setTimeout(() => {
+              setTotalScroll(thresholds.current["paradox"] + 1);
+            }, delay)
+          }
+        } else if (totalScroll < thresholds.current["ready"]) {
+          if (totalScroll === thresholds.current["approach"]) {
+            setTotalScroll(thresholds.current["breakup"] + 1);
+            setTimeout(() => {
+              setTotalScroll(thresholds.current["paradox"] + 1);
+            }, delay)
+          } else {
+            setTotalScroll(thresholds.current["approach"] + 1);
+            setTimeout(() => {
+              setTotalScroll(thresholds.current["breakup"] + 1);
+            }, delay)
+            setTimeout(() => {
+              setTotalScroll(thresholds.current["paradox"] + 1);
+            }, 2 * delay)
+          }
+        } else {
+          setTotalScroll(thresholds.current["approach"] + 1);
+          setTimeout(() => {
+            setTotalScroll(thresholds.current["breakup"] + 1);
+          }, delay)
+          setTimeout(() => {
+            setTotalScroll(thresholds.current["paradox"] + 1);
+          }, 2 * delay)
+        }
       }
     }
 
@@ -89,6 +123,22 @@ export const DesktopLayout = () => {
             setTotalScroll(thresholds.current[tabKey]);
           }, delay);
           setTotalScroll(thresholds.current["paradox"]);
+        }
+      } else {
+        if (totalScroll < thresholds.current["ready"]) {
+          if (totalScroll === thresholds.current["approach"]) {
+            setTotalScroll(thresholds.current["breakup"] + 1);
+          } else {
+            setTotalScroll(thresholds.current["approach"] + 1);
+            setTimeout(() => {
+              setTotalScroll(thresholds.current["breakup"] + 1)
+            }, delay)
+          }
+        } else {
+          setTotalScroll(thresholds.current["approach"] + 1);
+          setTimeout(() => {
+            setTotalScroll(thresholds.current["breakup"] + 1);
+          }, delay)
         }
       }
 
@@ -115,6 +165,8 @@ export const DesktopLayout = () => {
             setTotalScroll(thresholds.current[tabKey]);
           }, delay * 2);
         }
+      } else {
+        setTotalScroll(thresholds.current["approach"] + 1);
       }
 
       if (Math.abs(totalScroll - thresholds.current["approach"]) < 2) {
