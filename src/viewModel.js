@@ -5,8 +5,8 @@ export const viewModel = {
     lastName: "Aldana",
     titleTop: "Breakup",
     titleBottom: "Artist",
-    imgSrc: "home_2.jpeg",
-    mobileImgSrc: "home_2.jpeg",
+    imgSrc: "home_4_crop.jpg",
+    mobileImgSrc: "home_4_crop.jpg",
     subtitle: "Access the happiness and fulfillment you thought your success would provide by breaking up with the people, places, and patterns that drain your vitality.",
     subtitleShort: "Break up with the people, places, and patterns that drain your vitality.",
   },
@@ -97,7 +97,7 @@ export const viewModel = {
   approach: {
     tabTitle: "My Approach",
     bodyTitle: "Why Elizabeth?",
-    bodySubtitle: "Partner in transformational growth",
+    bodySubtitle: "Your partner in transformational growth",
     imgSrc: "home_1.jpeg",
     bodyContent: [
       {

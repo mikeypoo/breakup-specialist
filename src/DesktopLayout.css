@@ -60,6 +60,7 @@
   top: 50%;
   right: 50%;
   transform: translateY(-50%) translateX(50%);
+  filter: grayscale();
 }
 
 .desktop-layout .tab {
@@ -69,6 +70,7 @@
   position: absolute;
   overflow: hidden;
   background: rgba(241, 232, 231, 0.95);
+  backdrop-filter: blur(4px);
   top: 2vw;
 }
 
@@ -163,32 +165,51 @@
 }
 
 .desktop-layout .body-content-row {
-  display: flex;
-  gap: 4vw;
+  display: block;
+  column-count: 2;
+  column-gap: 4vw;
+  width: 100%;
+}
+
+.desktop-layout .body-content-row.top-margin {
+  margin-top: 1.5vw;
+}
+
+.desktop-layout .body-content-row.single-column {
+  column-count: 1;
 }
 
 .desktop-layout .body-content-column {
   flex: 1;
 }
 
-.desktop-layout .body-content-container {
-  margin-top: 24px;
+.desktop-layout .body-content-section {
+  margin-top: 1.5vw;
+  line-height: 1.5vw;
+  break-inside: avoid-column;
 }
 
-.desktop-layout .body-content-section {
-  margin-bottom: 1.5vw;
-  line-height: 1.5vw;
+.desktop-layout .body-content-section:first-child {
+  margin-top: 0;
+}
+
+.desktop-layout .body-content-section.auto-wrap {
+  break-inside: auto;
 }
 
 .desktop-layout .body-content-section.big-font {
-  font-size: 1.5vw;
+  font-size: 1.3vw;
   line-height: 2vw;
 }
 
 .desktop-layout .approach-contents .body-content-section {
   font-size: 0.8vw;
-  margin-bottom: 1vw;
+  margin-top: 1vw;
   line-height: 1vw;
+}
+
+.desktop-layout .approach-contents .body-content-section.no-top-margin {
+  margin-top: 0;
 }
 
 .desktop-layout .body-content-section.gray-font {
@@ -202,6 +223,7 @@
 
 .desktop-layout .tab .body-container .body-subtitle {
   font-size: 1.05vw;
+  letter-spacing: 0.06vw;
   text-transform: uppercase;
   max-width: 17vw;
   text-align: center;

@@ -10,7 +10,7 @@ export const BreakupContents = () => {
                   You know life is about more than ascending ladders. It’s about where you live emotionally, relationally, and mentally. And if these things are in a state of dysfunction, it can be impossible to enjoy what you’ve built.
               </div>
               <div className="body-content-section">
-                  If you’re feeling estranged from the dynamic buzz of creativity, levity, and hope that you once had, it’s time for a breakup.
+                  If you’re feeling estranged from the dynamic buzz of creativity, levity, and hope you once had, it’s time for a breakup.
               </div>
             </div>
           </div>
