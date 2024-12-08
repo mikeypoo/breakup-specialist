@@ -218,3 +218,31 @@ html {
   margin-bottom: 24px;
   padding-top: 4px;
 }
+
+@media (orientation: landscape) {
+  .mobile-modal-header {
+    font-size: calc(6dvh + 1vw);
+    height: 7.2vw;
+    padding-left: 4dvh;
+    padding-top: 2dvh;
+  }
+
+  .mobile-modal-content {
+    margin: 5dvh 0 1dvh 0;
+    font-size: calc(4dvh + 1vw);
+    line-height: 1.3dvh;
+    padding: 0 16px 80px 16px;
+  }
+
+  .mobile-modal .policy-header {
+    font-size: 5dvh;
+    line-height: 6dvh;
+    margin-bottom: 2dvh;
+  }
+
+  .mobile-modal .policy-section {
+    margin-bottom: 8dvh;
+    font-size: 3dvh;
+    line-height: 5dvh;
+  }
+}

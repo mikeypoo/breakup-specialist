@@ -317,6 +317,12 @@
   margin-bottom: 8vw;
 }
 
+@media (orientation: landscape) {
+  .mobile-layout .ready-body-container {
+    margin-bottom: 8dvh;
+  }
+}
+
 .mobile-layout .tab .body-container .body-cta {
   border: 2px solid var(--eerie-black);
   border-radius: 54px;
@@ -385,12 +391,26 @@
   margin-block: 12px;
 }
 
+@media (orientation: landscape) {
+  .mobile-layout .ready-container .ready-img {
+    width: 40dvh;
+    height: 40dvh;
+  }
+}
+
 .mobile-layout .testimonial-arrow {
   height: 7vw;
   width: 7vw;
   border-radius: 50%;
   cursor: pointer;
   fill: var(--auburn);
+}
+
+@media (orientation: landscape) {
+  .mobile-layout .testimonial-arrow {
+    height: 7dvh;
+    width: 7dvh;
+  }
 }
 
 .mobile-layout .butterfly {
@@ -459,11 +479,22 @@
   margin-top: 15vw;
 }
 
+@media (orientation: landscape) {
+  .mobile-layout .tab .body-container .testimonials-and-links {
+    margin-top: 15dvh;
+  }
+}
+
 .mobile-layout .tab .body-container .links-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-top: 20vw;
+}
+
+@media (orientation: landscape) {
+  .mobile-layout .tab .body-container .links-container {
+    margin-top: 20dvh;
+  }
 }
 
 .mobile-layout .tab .body-container .social-link {
@@ -476,6 +507,13 @@
   font-size: calc(6vw + 1vh);
 }
 
+@media (orientation: landscape) {
+  .mobile-layout .tab .body-container .social-link {
+    line-height: 2.2dvh;
+    font-size: calc(6dvh + 1vw);
+  }
+}
+
 .mobile-layout .tab .body-container .social-link:hover {
   color: var(--dim-gray);
 }
@@ -483,6 +521,12 @@
 .mobile-layout .tab .body-container .policy-link {
   line-height: 5.2vw;
   cursor: pointer;
+}
+
+@media (orientation: landscape) {
+  .mobile-layout .tab .body-container .policy-link {
+    line-height: 5.2dvh;
+  }
 }
 
 .mobile-layout .tab .body-container .policy-link:hover {
