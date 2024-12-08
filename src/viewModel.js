@@ -5,8 +5,8 @@ export const viewModel = {
     lastName: "Aldana",
     titleTop: "Breakup",
     titleBottom: "Artist",
-    imgSrc: "home_4_crop.jpg",
-    mobileImgSrc: "home_4_crop.jpg",
+    imgSrc: "home_4_shop.png",
+    mobileImgSrc: "home_4_shop.png",
     subtitle: "Access the happiness and fulfillment you thought your success would provide by breaking up with the people, places, and patterns that drain your vitality.",
     subtitleShort: "Break up with the people, places, and patterns that drain your vitality.",
   },
@@ -98,7 +98,7 @@ export const viewModel = {
     tabTitle: "My Approach",
     bodyTitle: "Why Elizabeth?",
     bodySubtitle: "Your partner in transformational growth",
-    imgSrc: "home_1.jpeg",
+    imgSrc: "sunny_smiley_shop.png",
     bodyContent: [
       {
         id: 1,
@@ -149,6 +149,7 @@ export const viewModel = {
     bodySubtitle: "Sign up",
     bodyContent: [],
     imgSrc: "home_1.jpeg",
+    img: "ready_img_abstract.png",
     videoSrc: "butterfly.mp4",
   },
   testimonials: [

@@ -1,10 +1,10 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useCallback, useContext, useEffect, useRef, useState } from "react";
 import { AppContext } from "./AppContext";
 import { TabPanel } from "./TabPanel";
 import "./DesktopLayout.css";
 
 export const DesktopLayout = () => {
-  const { viewModel } = useContext(AppContext);
+  const { viewModel, showingModal } = useContext(AppContext);
   const { home, tabKeys } = viewModel;
   const [totalScroll, setTotalScroll] = useState(0);
   const thresholds = useRef({
@@ -15,24 +15,53 @@ export const DesktopLayout = () => {
     ready: Infinity,
   });
 
+  const scrollBodyContent = useCallback((amountChanged) => {
+    let returnVal = false;
+
+    ['paradox', 'breakup', 'approach', 'ready'].forEach(key => {
+      if (totalScroll === thresholds.current[key]) {
+        const contentEl = document.getElementById(`${key}-scroll`)
+
+        if (amountChanged > 0) {
+          if (contentEl.scrollTop > 0) {
+            contentEl.scrollTop -= amountChanged / 5
+            returnVal = true;
+          }
+        } else {
+          if (contentEl.clientHeight + contentEl.scrollTop < contentEl.scrollHeight) {
+            contentEl.scrollTop -= amountChanged / 5
+            returnVal = true;
+          }
+        }
+      }
+    })
+
+    return returnVal;
+  }, [totalScroll])
+
   useEffect(() => {
     const onScroll = (scrollEvent) => {
-      const { wheelDeltaY: amountChanged } = scrollEvent;
-      setTotalScroll((prevScroll) => {
-        const newScroll = prevScroll - amountChanged / 5;
-        let snappedScroll = newScroll;
+      if (showingModal) return;
 
-        if (newScroll >= 0 && newScroll <= thresholds.current.ready) {
-          snappedScroll = newScroll;
-          Object.values(thresholds.current).forEach((thresh) => {
-            if (Math.abs(thresh - newScroll) < 5) {
-              snappedScroll = thresh;
-            }
-          });
-          return snappedScroll;
-        }
-        return prevScroll;
-      });
+      const { wheelDeltaY: amountChanged } = scrollEvent;
+
+      if (!scrollBodyContent(amountChanged)) {
+        setTotalScroll((prevScroll) => {
+          const newScroll = prevScroll - amountChanged / 10;
+          let snappedScroll = newScroll;
+
+          if (newScroll >= 0 && newScroll <= thresholds.current.ready) {
+            snappedScroll = newScroll;
+            Object.values(thresholds.current).forEach((thresh) => {
+              if (Math.abs(thresh - newScroll) < 3) {
+                snappedScroll = thresh;
+              }
+            });
+            return snappedScroll;
+          }
+          return prevScroll;
+        });
+      }
     };
 
     window.addEventListener("wheel", onScroll);
@@ -40,7 +69,7 @@ export const DesktopLayout = () => {
     return () => {
       window.removeEventListener("wheel", onScroll);
     };
-  }, []);
+  }, [scrollBodyContent, showingModal]);
 
   useEffect(() => {
     const windowResize = () => {

@@ -17,3 +17,204 @@ html {
   background: var(--off-white);
   overscroll-behavior: none;
 }
+
+.desktop-modal {
+  width: 100vw;
+  height: 100dvh;
+  position: fixed;
+  background:rgba(241, 232, 231, 0.95);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  animation: entryAnimation 600ms forwards ease-out;
+}
+
+.desktop-modal.exiting {
+  animation: exitAnimation 600ms forwards ease-out;
+}
+
+@keyframes entryAnimation {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes exitAnimation {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.desktop-modal-header {
+  font-family: "EditorialNew";
+  color: var(--eerie-black);
+  letter-spacing: -1px;
+  position: absolute;
+  top: 90%;
+  transform: rotate(-90deg);
+  transform-origin: left;
+  font-size: calc(3vh + 3vw);
+  left: calc(3vh + 3vw);
+  cursor: pointer;
+  width: 51%;
+  padding-block: 16px;
+  user-select: none;
+}
+
+.desktop-modal-button {
+  font-family: "EditorialNew";
+  position: absolute;
+  border: 0.1vw solid var(--eerie-black);
+  border-radius: 2.5vw;
+  padding-inline: 3vw;
+  padding-top: 0.4vw;
+  font-size: 3vw;
+  text-align: center;
+  background-color: var(--off-white);
+  transition: background-color 300ms ease-out;
+  cursor: pointer;
+  margin-bottom: 0.1vw;
+  bottom: 1vw;
+}
+
+.desktop-modal-button:hover {
+  border: 0.1vw solid var(--off-white);
+  background-color: var(--eerie-black);
+  color: var(--off-white);
+  cursor: pointer;
+}
+
+.desktop-modal-content {
+  font-family: monospace;
+  width: 40%;
+  margin: 5vw 0 1vw 0;
+  padding-bottom: 5vw;
+  overflow-y: auto;
+  line-height: 1.3vw;
+}
+
+.desktop-modal .policy-header {
+  color: var(--dim-gray);
+  text-transform: uppercase;
+  font-size: 1.1vw;
+  line-height: 1.5vw;
+  margin-bottom: 0.5vw;
+}
+
+.desktop-modal .policy-section {
+  margin-bottom: 2vw;
+  font-size: 0.8vw;
+  line-height: 1.2vw;
+}
+
+.mobile-modal {
+  width: 100vw;
+  height: 100dvh;
+  position: fixed;
+  background:rgba(241, 232, 231, 0.95);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  animation: mobileEntryAnimation 450ms forwards ease-out;
+}
+
+.mobile-modal.exiting {
+  animation: mobileExitAnimation 450ms forwards ease-out;
+}
+
+@keyframes mobileEntryAnimation {
+  0% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes mobileExitAnimation {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.mobile-modal-header {
+  font-family: "EditorialNew";
+  font-size: calc(6vw + 1vh);
+  display: flex;
+  height: 7.2vh;
+  align-items: center;
+  padding-left: 4vw;
+  padding-top: 2vw;
+  margin-inline: 16px;
+  border-bottom: 2px solid var(--eerie-black);
+}
+
+.mobile-modal-content {
+  flex: 1;
+  font-family: monospace;
+  margin: 5vw 0 1vw 0;
+  overflow-y: auto;
+  font-size: calc(4vw + 1vh);
+  line-height: 1.3vw;
+  padding: 0 16px 80px 16px;
+}
+
+.mobile-modal .policy-header {
+  color: var(--dim-gray);
+  text-transform: uppercase;
+  font-size: 5vw;
+  line-height: 6vw;
+  margin-bottom: 2vw;
+  color: var(--dim-gray);
+}
+
+.mobile-modal .policy-section {
+  margin-bottom: 8vw;
+  font-size: 3vw;
+  line-height: 5vw;
+  color: var(--eerie-black);
+}
+
+.mobile-modal-button {
+  font-family: "EditorialNew";
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+  line-height: 3rem;
+  border: 2px solid var(--eerie-black);
+  border-radius: 54px;
+  width: 212px;
+  height: 50px;
+  font-size: 2rem;
+  text-align: center;
+  background-color: var(--off-white);
+  transition: background-color 300ms ease-out;
+  cursor: pointer;
+  margin-bottom: 24px;
+  padding-top: 4px;
+}

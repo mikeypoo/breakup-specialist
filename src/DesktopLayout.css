@@ -127,6 +127,7 @@
   justify-content: space-between;
   align-items: center;
   transition: opacity 300ms ease-out;
+  overflow-y: auto;
 }
 
 .desktop-layout .tab#paradox .body-container {
@@ -156,6 +157,11 @@
   color: var(--eerie-black);
   width: 100%;
   font-size: 1vw;
+  padding-bottom: 8vw;
+}
+
+.desktop-layout .tab#ready .body-content {
+  padding-bottom: 0;
 }
 
 .desktop-layout .ready-body-container {
@@ -203,9 +209,7 @@
 }
 
 .desktop-layout .approach-contents .body-content-section {
-  font-size: 0.8vw;
-  margin-top: 1vw;
-  line-height: 1vw;
+  margin-top: 2vw;
 }
 
 .desktop-layout .approach-contents .body-content-section.no-top-margin {
@@ -240,6 +244,8 @@
   transition: background-color 300ms ease-out;
   cursor: pointer;
   margin-bottom: 0.1vw;
+  position: fixed;
+  bottom: 1vw;
 }
 
 .desktop-layout .tab .body-container .body-cta:hover {
@@ -263,10 +269,11 @@
   align-items: center;
   padding-right: 60px;
   text-align: center;
+  margin-bottom: 9vw;
 }
 
 .desktop-layout .ready-container .testimonial-content {
-  flex: 3;
+  flex: 6;
   border-left: 0.15vw solid var(--eerie-black);
   position: relative;
   padding-top: 6vw;
@@ -279,8 +286,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-left: 4vw;
-  padding-right: 2vw;
+  padding-left: 12vw;
+  padding-right: 10vw;
   transition: opacity 300ms ease-out;
 }
 
@@ -294,18 +301,20 @@
   margin-bottom: 2vw;
   display: flex;
   align-items: center;
-  gap: 1vw;
+  gap: 0.25vw;
   user-select: none;
   font-size: 1.1vw;
   margin-left: 2.1vw;
+  margin-top: 1vw;
+  justify-content: center;
 }
 
 .desktop-layout .ready-container .ready-img {
-  width: 25vw;
-  height: 25vw;
+  width: 20vw;
+  height: 20vw;
   object-fit: cover;
   object-position: top;
-  margin-bottom: 2vw;
+  margin-bottom: 1vw;
 }
 
 .desktop-layout .butterfly {
@@ -326,6 +335,7 @@
   width: 1.5vw;
   border-radius: 50%;
   cursor: pointer;
+  fill: var(--auburn);
 }
 
 .desktop-layout .testimonial-arrow:hover {
@@ -334,7 +344,7 @@
 
 .desktop-layout .approach-header {
   display: flex;
-  align-items: top;
+  align-items: flex-start;
   gap: 2vw;
 }
 
@@ -349,3 +359,39 @@
   line-height: 1.5vw;
 }
 
+.desktop-layout .testimonials-and-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.desktop-layout .links-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.desktop-layout .social-link {
+  line-height: 2.2vw;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.desktop-layout .social-link:hover {
+  color: var(--dim-gray);
+}
+
+.desktop-layout .policy-link {
+  line-height: 1.2vw;
+  cursor: pointer;
+}
+
+.desktop-layout .policy-link:hover {
+  color: var(--eerie-black);
+}
+
+.desktop-layout .hide-on-desktop {
+  display: none !important;
+}

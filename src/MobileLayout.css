@@ -313,6 +313,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin-bottom: 8vw;
 }
 
 .mobile-layout .tab .body-container .body-cta {
@@ -384,10 +385,11 @@
 }
 
 .mobile-layout .testimonial-arrow {
-  height: 40px;
-  width: 40px;
+  height: 7vw;
+  width: 7vw;
   border-radius: 50%;
   cursor: pointer;
+  fill: var(--auburn);
 }
 
 .mobile-layout .butterfly {
@@ -447,3 +449,45 @@
   }
 }
 
+.mobile-layout .tab .body-container .testimonials-and-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  height: 100%;
+  margin-top: 15vw;
+}
+
+.mobile-layout .tab .body-container .links-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 20vw;
+}
+
+.mobile-layout .tab .body-container .social-link {
+  line-height: 2.2vw;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: 'EditorialNew';
+  color: var(--eerie-black);
+  text-transform: none;
+  font-size: calc(6vw + 1vh);
+}
+
+.mobile-layout .tab .body-container .social-link:hover {
+  color: var(--dim-gray);
+}
+
+.mobile-layout .tab .body-container .policy-link {
+  line-height: 5.2vw;
+  cursor: pointer;
+}
+
+.mobile-layout .tab .body-container .policy-link:hover {
+  color: var(--eerie-black);
+}
+
+.mobile-layout .hide-on-mobile {
+  display: none !important;
+}

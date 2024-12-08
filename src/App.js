@@ -4,6 +4,8 @@ import { MobileLayout } from "./MobileLayout";
 import { DesktopLayout } from "./DesktopLayout";
 import { AppContext } from "./AppContext";
 import { viewModel } from "./viewModel";
+import { DesktopModal } from "./DesktopModal";
+import { MobileModal } from "./MobileModal";
 
 const MOBILE_THRESH = 1060;
 
@@ -14,6 +16,10 @@ const isMobileOrTouch = () => {
 const App = () => {
   const [theme, setTheme] = useState("dark");
   const [isMobileView, setIsMobileView] = useState(isMobileOrTouch());
+  const [termsOpen, setTermsOpen] = useState(false);
+  const [privacyOpen, setPrivacyOpen] = useState(false);
+
+  const showingModal = termsOpen || privacyOpen;
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
@@ -42,10 +48,18 @@ const App = () => {
     window.open("https://www.linkedin.com/in/witheaa/", "_blank").focus();
   };
 
+  const openEmail = () => {
+    window.open("mailto:hello@breakupartist.coach");
+  }
+
   const contextValue = {
     toggleTheme,
     openCalendly,
     openLinkedIn,
+    openEmail,
+    setTermsOpen,
+    setPrivacyOpen,
+    showingModal,
     viewModel,
   };
 
@@ -53,6 +67,10 @@ const App = () => {
 
   return (
     <AppContext.Provider value={contextValue}>
+      {termsOpen && !isMobileView && <DesktopModal modalKey="terms" />}
+      {termsOpen && isMobileView && <MobileModal modalKey="terms" />}
+      {privacyOpen && !isMobileView && <DesktopModal modalKey="privacy" />}
+      {privacyOpen && isMobileView && <MobileModal modalKey="privacy" />}
       <Layout />
     </AppContext.Provider>
   );

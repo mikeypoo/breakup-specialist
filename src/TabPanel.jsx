@@ -66,7 +66,7 @@ export const TabPanel = ({
         >
           {tabData.tabTitle}
         </div>
-        <div className="body-container">
+        <div id={`${tabKey}-scroll`} className="body-container">
           {tabKey !== "ready" && (
             <>
               <div className="editorial-font body-title">
