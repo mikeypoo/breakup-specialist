@@ -117,6 +117,7 @@
   position: absolute;
   overflow: hidden;
   background: var(--off-white-alpha);
+  backdrop-filter: blur(4px);
 }
 
 .mobile-layout .tab.smooth-transition {
