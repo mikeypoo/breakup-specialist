@@ -1,11 +1,14 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AppContext } from "./AppContext";
 import { ArrowSvg } from "./ArrowSvg";
+import { useSwipe } from './useSwipe';
 
 export const ReadyContents = () => {
-  const { openCalendly, openLinkedIn, setTermsOpen, setPrivacyOpen, viewModel } = useContext(AppContext);
+  const { openCalendly, openLinkedIn, setTermsOpen, setPrivacyOpen, viewModel, isMobileOrTouch } = useContext(AppContext);
   const [testimonialIndex, setTestimonialIndex] = useState(0);
+  const [testimonialMinHeight, setTestimonialMinHeight] = useState('');
   const [fading, setFading] = useState(false);
+  const { onTouchStart, onTouchMove, onTouchEnd } = useSwipe();
 
   const onClickArrow = increment => {
     setFading(true)
@@ -20,12 +23,34 @@ export const ReadyContents = () => {
     }, 300)
   }
 
+  const handleSwipe = (direction) => {
+    if (!isMobileOrTouch) return null;
+
+    if (direction === 'right') {
+      onClickArrow(-1)
+    } else if (direction === 'left') {
+      onClickArrow(1)
+    }
+  };
+
+  useEffect(() => {
+    const bigBoy = document.getElementById('biggest-testimonial')
+    const pixelHeight = bigBoy.clientHeight
+    setTestimonialMinHeight(`${pixelHeight}px`)
+  }, [])
+
+  const biggestTestimonial = viewModel.testimonials[4];
+
   const { content, name, key } = viewModel.testimonials[testimonialIndex];
 
   const currentTestimonialClass = fading ? "current-testimonial fading" : "current-testimonial"
 
   return (
     <>
+      <div id="biggest-testimonial">
+        <div className="current-testimonial-content">{biggestTestimonial.content}</div>
+        <div className="current-testimonial-name">-{biggestTestimonial.name}</div>
+      </div>
       <div className="ready-container">
         <div className="ready-content">
           <img className="ready-img" src={viewModel.ready.img} alt="I'm ready"/>
@@ -57,12 +82,21 @@ export const ReadyContents = () => {
                 {key}/{viewModel.testimonials.length}
                 <ArrowSvg isRight onClick={() => onClickArrow(1)} />
               </div>
-              <div className={currentTestimonialClass}>
+              <div
+                className={currentTestimonialClass} 
+                style={{ minHeight: testimonialMinHeight }}
+                onTouchStart={onTouchStart}
+                onTouchMove={onTouchMove}
+                onTouchEnd={() => {
+                  const direction = onTouchEnd()
+                  handleSwipe(direction)
+                }}
+              >
                 <div className="current-testimonial-content">{content}</div>
                 <div className="current-testimonial-name">-{name}</div>
               </div>
               <div className="testimonial-counter hide-on-desktop">
-                <ArrowSvg onClick={() => onClickArrow(1)} />
+                <ArrowSvg onClick={() => onClickArrow(-1)} />
                 {key}/{viewModel.testimonials.length}
                 <ArrowSvg isRight onClick={() => onClickArrow(1)} />
               </div>

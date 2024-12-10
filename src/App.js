@@ -61,6 +61,7 @@ const App = () => {
     setPrivacyOpen,
     showingModal,
     viewModel,
+    isMobileOrTouch,
   };
 
   const Layout = isMobileView ? MobileLayout : DesktopLayout;
