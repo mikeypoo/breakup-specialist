@@ -7,6 +7,13 @@ export const MobileLayout = () => {
   const { viewModel } = useContext(AppContext);
   const { home, tabKeys } = viewModel;
 
+  const defaultSwipes = {
+    paradox: false,
+    breakup: false,
+    approach: false,
+    ready: false,
+  }
+
   const [thresholds, setThresholds] = useState({
     paradox: Infinity,
     breakup: Infinity,
@@ -14,12 +21,7 @@ export const MobileLayout = () => {
     ready: Infinity,
   });
 
-  const [swipes, setSwipes] = useState({
-    paradox: false,
-    breakup: false,
-    approach: false,
-    ready: false,
-  });
+  const [swipes, setSwipes] = useState(defaultSwipes);
 
   const toggleSwipeOf = (tabKey) => {
     const newSwipes = { ...swipes };
@@ -40,15 +42,22 @@ export const MobileLayout = () => {
       setThresholds(newThresholds);
     };
 
+    const orientationChanged = () => {
+      window.location.reload()
+    }
+
     windowResize();
 
     window.addEventListener("resize", windowResize);
+    window.addEventListener("orientationchange", orientationChanged)
 
     return () => {
       window.removeEventListener("resize", windowResize);
+      window.removeEventListener("orientationchange", orientationChanged)
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
 
   return (
     <div className="mobile-layout">
