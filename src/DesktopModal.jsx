@@ -44,11 +44,13 @@ export const DesktopModal = ({ modalKey }) => {
             <div className="desktop-modal-header">
                 {header}
             </div>
-            <div className="desktop-modal-content">
-                <Contents />
-            </div>
-            <div className="desktop-modal-button" onClick={closeThings}>
-                Close
+            <div className="desktop-modal-wrapper">
+                <div className="desktop-modal-content">
+                    <Contents />
+                </div>
+                <div className="desktop-modal-button" onClick={closeThings}>
+                    Close
+                </div>
             </div>
         </div>
     )
