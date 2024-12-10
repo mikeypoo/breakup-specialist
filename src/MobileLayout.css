@@ -248,7 +248,11 @@
   .mobile-layout .current-testimonial {
     display: flex;
     flex-direction: column;
-    transition: opacity 300ms ease-out;
+    animation: fadeIn 300ms forwards ease-out;
+  }
+
+  .mobile-layout .current-testimonial.fading {
+    animation: fadeOut 300ms forwards ease-out;
   }
 
   .mobile-layout .current-testimonial-content {
@@ -758,7 +762,11 @@
   .mobile-layout .current-testimonial {
     display: flex;
     flex-direction: column;
-    transition: opacity 300ms ease-out;
+    animation: fadeIn 300ms forwards ease-out;
+  }
+
+  .mobile-layout .current-testimonial.fading {
+    animation: fadeOut 300ms forwards ease-out;
   }
 
   .mobile-layout .current-testimonial-content {
@@ -1003,5 +1011,25 @@
   .mobile-layout .tab .body-container .policy-link {
     font-size: 2dvh;
     line-height: 3dvh;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
   }
 }

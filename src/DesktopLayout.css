@@ -289,6 +289,11 @@
   padding-left: 12vw;
   padding-right: 10vw;
   transition: opacity 300ms ease-out;
+  animation: fadeIn 300ms forwards ease-out;
+}
+
+.desktop-layout .current-testimonial.fading {
+  animation: fadeOut 300ms forwards ease-out;
 }
 
 .desktop-layout .current-testimonial-content {
@@ -394,4 +399,24 @@
 
 .desktop-layout .hide-on-desktop {
   display: none !important;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }

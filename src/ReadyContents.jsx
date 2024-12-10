@@ -5,8 +5,24 @@ import { ArrowSvg } from "./ArrowSvg";
 export const ReadyContents = () => {
   const { openCalendly, openLinkedIn, setTermsOpen, setPrivacyOpen, viewModel } = useContext(AppContext);
   const [testimonialIndex, setTestimonialIndex] = useState(0);
+  const [fading, setFading] = useState(false);
+
+  const onClickArrow = increment => {
+    setFading(true)
+
+    setTimeout(() => {
+      setTestimonialIndex(
+        (prev) =>
+          (prev + increment + viewModel.testimonials.length) %
+          viewModel.testimonials.length
+      )
+      setFading(false)
+    }, 300)
+  }
 
   const { content, name, key } = viewModel.testimonials[testimonialIndex];
+
+  const currentTestimonialClass = fading ? "current-testimonial fading" : "current-testimonial"
 
   return (
     <>
@@ -37,48 +53,18 @@ export const ReadyContents = () => {
           <div className="testimonials-and-links">
             <div>
               <div className="testimonial-counter hide-on-mobile">
-                <ArrowSvg
-                  onClick={() =>
-                    setTestimonialIndex(
-                      (prev) =>
-                        (prev - 1 + viewModel.testimonials.length) %
-                        viewModel.testimonials.length
-                    )
-                  }
-                />
+                <ArrowSvg onClick={() => onClickArrow(-1)} />
                 {key}/{viewModel.testimonials.length}
-                <ArrowSvg
-                  isRight
-                  onClick={() =>
-                    setTestimonialIndex(
-                      (prev) => (prev + 1) % viewModel.testimonials.length
-                    )
-                  }
-                />
+                <ArrowSvg isRight onClick={() => onClickArrow(1)} />
               </div>
-              <div className="current-testimonial">
+              <div className={currentTestimonialClass}>
                 <div className="current-testimonial-content">{content}</div>
                 <div className="current-testimonial-name">-{name}</div>
               </div>
               <div className="testimonial-counter hide-on-desktop">
-                <ArrowSvg
-                  onClick={() =>
-                    setTestimonialIndex(
-                      (prev) =>
-                        (prev - 1 + viewModel.testimonials.length) %
-                        viewModel.testimonials.length
-                    )
-                  }
-                />
+                <ArrowSvg onClick={() => onClickArrow(1)} />
                 {key}/{viewModel.testimonials.length}
-                <ArrowSvg
-                  isRight
-                  onClick={() =>
-                    setTestimonialIndex(
-                      (prev) => (prev + 1) % viewModel.testimonials.length
-                    )
-                  }
-                />
+                <ArrowSvg isRight onClick={() => onClickArrow(1)} />
               </div>
             </div>
             <div className="links-container">
