@@ -246,3 +246,59 @@ html {
     line-height: 5dvh;
   }
 }
+
+@media (3 /5 < aspect-ratio < 5 /3) {
+  .mobile-modal-header {
+    font-size: calc(4dvw + 1vh);
+    height: 7.2dvh;
+    padding-left: 1dvw;
+    padding-top: 2dvw;
+  }
+
+  .mobile-modal-content {
+    margin: 5dvh 0 1dvw 0;
+    font-size: calc(1dvw + 1dvh);
+    line-height: 1.3dvw;
+    padding: 0 16px 80px 16px;
+  }
+
+  .mobile-modal .policy-header {
+    font-size: 3dvw;
+    line-height: 4dvw;
+    margin-bottom: 2dvw;
+  }
+
+  .mobile-modal .policy-section {
+    margin-bottom: 8dvw;
+    font-size: 2dvw;
+    line-height: 3dvw;
+  }
+}
+
+@media (orientation: landscape) and (3 /5 < aspect-ratio < 5 /3) {
+  .mobile-modal-header {
+    font-size: calc(4dvh + 1vw);
+    height: 7.2dvw;
+    padding-left: 1dvh;
+    padding-top: 2dvh;
+  }
+
+  .mobile-modal-content {
+    margin: 5dvh 0 1dvh 0;
+    font-size: calc(1dvh + 1dvw);
+    line-height: 1.3dvh;
+    padding: 0 16px 80px 16px;
+  }
+
+  .mobile-modal .policy-header {
+    font-size: 3dvh;
+    line-height: 4dvh;
+    margin-bottom: 2dvh;
+  }
+
+  .mobile-modal .policy-section {
+    margin-bottom: 8dvh;
+    font-size: 2dvh;
+    line-height: 3dvh;
+  }
+}
