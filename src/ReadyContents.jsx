@@ -39,7 +39,7 @@ export const ReadyContents = () => {
     setTestimonialMinHeight(`${pixelHeight}px`)
   }, [])
 
-  const biggestTestimonial = viewModel.testimonials[4];
+  const biggestTestimonial = viewModel.testimonials[0];
 
   const { content, name, key } = viewModel.testimonials[testimonialIndex];
 
