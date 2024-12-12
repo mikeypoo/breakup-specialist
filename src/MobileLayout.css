@@ -194,6 +194,12 @@
     text-transform: uppercase;
   }
 
+  .mobile-layout .tab .body-container .ready-body-title {
+    font-size: var(--font-ready-xl);
+    line-height: var(--line-height-ready-xl);
+    margin-bottom: var(--spc);
+  }
+
   .mobile-layout .tab .body-container .body-subtitle {
     font-size: 3.5vw;
     text-transform: uppercase;
@@ -350,13 +356,11 @@
   }
 
   .mobile-layout .tab .body-container .social-link {
-    line-height: 2.2vw;
     cursor: pointer;
     text-decoration: none;
     font-family: 'EditorialNew';
     color: var(--eerie-black);
     text-transform: none;
-    font-size: calc(6vw + 1vh);
   }
 
   .mobile-layout .tab .body-container .social-link:hover {
@@ -722,6 +726,12 @@
     text-transform: uppercase;
   }
 
+  .mobile-layout .tab .body-container .ready-body-title {
+    font-size: var(--font-ready-xl);
+    line-height: var(--line-height-ready-xl);
+    margin-bottom: var(--spc);
+  }
+
   .mobile-layout .tab .body-container .body-subtitle {
     font-size: 2.5vw;
     text-transform: uppercase;
@@ -878,8 +888,6 @@
   }
 
   .mobile-layout .tab .body-container .social-link {
-    font-size: calc(3vw + 1vh);
-    line-height: 2vw;
     cursor: pointer;
     text-decoration: none;
     font-family: 'EditorialNew';
@@ -1029,11 +1037,6 @@
 
   .mobile-layout .tab .body-container .links-container {
     margin-top: 8dvh;
-  }
-
-  .mobile-layout .tab .body-container .social-link {
-    font-size: calc(3dvh + 1vw);
-    line-height: 2dvh;
   }
 
   .mobile-layout .tab .body-container .policy-link {
