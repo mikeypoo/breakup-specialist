@@ -518,11 +518,6 @@
     margin-top: 20dvh;
   }
 
-  .mobile-layout .tab .body-container .social-link {
-    line-height: 2.2dvh;
-    font-size: calc(6dvh + 1vw);
-  }
-
   .mobile-layout .tab .body-container .policy-link {
     line-height: 5.2dvh;
   }
