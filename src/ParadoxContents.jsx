@@ -20,7 +20,7 @@ export const ParadoxContents = () => {
                     You did everything right: The right school. The right career. The right partnerships. Yet here you are, feeling listless, hopeless, and burned out.
                 </div>
                 <div className="body-content-section auto-wrap">
-                    What if… Somewhere along the way, you developed an <strong>“imposter identity”</strong> a patchwork of behaviors and tactics stitched together to meet exacting expectations. That’s why, no matter how successful you are, you can’t shake the feeling you’re living a lie.
+                    What if… Somewhere along the way, you developed an <strong>“imposter identity”</strong> &mdash; a patchwork of behaviors and tactics stitched together to meet exacting expectations. That’s why, no matter how successful you are, you can’t shake the feeling you’re living a lie.
                 </div>
               </div>
             </div>

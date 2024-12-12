@@ -174,12 +174,12 @@ export const viewModel = {
     {
       key: 4,
       name: "FL",
-      content: `I achieved a stronger awareness of myself. I’m used to being the one asking the questions, so Elizabeth's direct line of questioning, structured approach, and superior reflective listening skills was a breath of fresh air and much needed to gain further introspection.`,
+      content: `I achieved a stronger awareness of myself. I’m used to being the one asking the questions, so Elizabeth's direct line of questioning, structured approach, and superior reflective listening skills were a breath of fresh air and much needed to gain further introspection.`,
     },
     {
       key: 5,
       name: "TS",
-      content: `When life didn’t go according to plan, Elizabeth helped me navigate the unknown in a way that was relaxed, inspiring, and surprisingly FUN. She has the uncanny ability to make problems feel manageable and light—all while providing a safe place to explore whatever you’re thinking.
+      content: `Elizabeth has the uncanny ability to make problems feel manageable and light—all while providing a safe place to explore whatever you’re thinking.
       Where there was chaos, I now have clarity. And where there was doubt, I now see opportunity and fun. If you’re on the fence about life coaching, I wholeheartedly recommend trying it out with Elizabeth. I don’t know where I’d be without her.
       `,
     },
@@ -191,12 +191,12 @@ export const viewModel = {
     {
       key: 7,
       name: "HK",
-      content: `I'm in the process of building out my dream career, in the midst of my present one, and my time with Elizabeth helped me to streamline my goals and action items to make my dream a reality. One thing that I find very noteworthy is that she is an incredibly intelligent listener and I was very impressed by how she was able to catch the little details in my rants to her as well as repeat it back to me in her own words`,
+      content: `I'm in the process of building out my dream career, in the midst of my present one, and my time with Elizabeth helped me to streamline my goals and action items to make my dream a reality. One thing that I find very noteworthy is that she is an incredibly intelligent listener and I was very impressed by how she was able to catch the little details in my rants to her as well as repeat it back to me in her own words.`,
     },
     {
       key: 8,
       name: "NN",
-      content: `I would recommend Elizabeth's coaching services to anyone who is at a crossroads and could use perspective. During coaching, you have the opportunity to think through problems with someone who’s in your corner but can still remain objective. Rather than criticize or praise certain ideas, Elizabeth uses the Socratic method to bring your attention to things you might have missed`,
+      content: `I would recommend Elizabeth's coaching services to anyone who is at a crossroads and could use perspective. During coaching, you have the opportunity to think through problems with someone who’s in your corner but can still remain objective. Rather than criticize or praise certain ideas, Elizabeth uses the Socratic method to bring your attention to things you might have missed.`,
     },
   ],
 };
