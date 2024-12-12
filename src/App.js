@@ -32,6 +32,10 @@ const App = () => {
     window.addEventListener("resize", updateSize);
     updateSize();
 
+    if (window.location.host === "elizabethaldana.coach") {
+      window.location.href = "https://breakupartist.coach"
+    }
+
     return () => window.removeEventListener("resize", updateSize);
   }, []);
 
