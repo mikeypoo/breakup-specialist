@@ -15,53 +15,27 @@ export const DesktopLayout = () => {
     ready: Infinity,
   });
 
-  const scrollBodyContent = useCallback((amountChanged) => {
-    let returnVal = false;
-
-    ['paradox', 'breakup', 'approach', 'ready'].forEach(key => {
-      if (totalScroll === thresholds.current[key]) {
-        const contentEl = document.getElementById(`${key}-scroll`)
-
-        if (amountChanged > 0) {
-          if (contentEl.scrollTop > 0) {
-            contentEl.scrollTop -= amountChanged / 5
-            returnVal = true;
-          }
-        } else {
-          if (contentEl.clientHeight + contentEl.scrollTop < contentEl.scrollHeight) {
-            contentEl.scrollTop -= amountChanged / 5
-            returnVal = true;
-          }
-        }
-      }
-    })
-
-    return returnVal;
-  }, [totalScroll])
-
   useEffect(() => {
     const onScroll = (scrollEvent) => {
       if (showingModal) return;
 
       const { wheelDeltaY: amountChanged } = scrollEvent;
 
-      if (!scrollBodyContent(amountChanged)) {
-        setTotalScroll((prevScroll) => {
-          const newScroll = prevScroll - amountChanged / 10;
-          let snappedScroll = newScroll;
+      setTotalScroll((prevScroll) => {
+        const newScroll = prevScroll - amountChanged / 10;
+        let snappedScroll = newScroll;
 
-          if (newScroll >= 0 && newScroll <= thresholds.current.ready) {
-            snappedScroll = newScroll;
-            Object.values(thresholds.current).forEach((thresh) => {
-              if (Math.abs(thresh - newScroll) < 3) {
-                snappedScroll = thresh;
-              }
-            });
-            return snappedScroll;
-          }
-          return prevScroll;
-        });
-      }
+        if (newScroll >= 0 && newScroll <= thresholds.current.ready) {
+          snappedScroll = newScroll;
+          Object.values(thresholds.current).forEach((thresh) => {
+            if (Math.abs(thresh - newScroll) < 3) {
+              snappedScroll = thresh;
+            }
+          });
+          return snappedScroll;
+        }
+        return prevScroll;
+      });
     };
 
     window.addEventListener("wheel", onScroll);
@@ -69,7 +43,7 @@ export const DesktopLayout = () => {
     return () => {
       window.removeEventListener("wheel", onScroll);
     };
-  }, [scrollBodyContent, showingModal]);
+  }, [showingModal]);
 
   useEffect(() => {
     const windowResize = () => {
