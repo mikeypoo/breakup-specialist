@@ -810,12 +810,25 @@
   }
 
   .mobile-layout .testimonial-arrow {
-    height: 40px;
-    width: 40px;
+    height: 24px;
+    width: 24px;
     border-radius: 50%;
     cursor: pointer;
     fill: var(--auburn);
   }
+
+  .mobile-layout .testimonial-arrow-taptarget {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .mobile-layout .testimonial-arrow-taptarget.target-right {
+    justify-content: flex-start;
+  }
+
 
   .mobile-layout .butterfly {
     max-width: 100%;
@@ -961,7 +974,7 @@
   }
 
   .mobile-layout .tab#ready .body-container .body-content {
-    height: calc(100dvh - 12vw);
+    height: calc(100dvh - 14vw);
   }
 
   .mobile-layout .tab .body-container .body-subtitle {

@@ -149,7 +149,7 @@ export const viewModel = {
     bodySubtitle: "Sign up",
     bodyContent: [],
     imgSrc: "home_1.jpeg",
-    img: "ready_img_abstract.png",
+    img: "ready_img_final.png",
     videoSrc: "butterfly.mp4",
   },
   testimonials: [

@@ -4,7 +4,7 @@ import { ArrowSvg } from "./ArrowSvg";
 import { useSwipe } from './useSwipe';
 
 export const ReadyContents = () => {
-  const { openCalendly, openLinkedIn, setTermsOpen, setPrivacyOpen, viewModel, isMobileOrTouch } = useContext(AppContext);
+  const { openCalendly, openLinkedIn, setTermsOpen, setPrivacyOpen, viewModel, isMobileView } = useContext(AppContext);
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [testimonialMinHeight, setTestimonialMinHeight] = useState('');
   const [fading, setFading] = useState(false);
@@ -24,7 +24,7 @@ export const ReadyContents = () => {
   }
 
   const handleSwipe = (direction) => {
-    if (!isMobileOrTouch) return null;
+    if (!isMobileView) return null;
 
     if (direction === 'right') {
       onClickArrow(-1)
@@ -55,7 +55,7 @@ export const ReadyContents = () => {
         <div className="ready-content">
           <img className="ready-img" src={viewModel.ready.img} alt="I'm ready"/>
           <div className="ready-body-container">
-            <div className="editorial-font body-title" style={{ marginBottom: 0 }}>
+            <div className="editorial-font ready-body-title" style={{ marginBottom: 0 }}>
               Let's Start
               <br/>
               Your Transformation
@@ -77,11 +77,13 @@ export const ReadyContents = () => {
           </div>
           <div className="testimonials-and-links">
             <div>
-              <div className="testimonial-counter hide-on-mobile">
-                <ArrowSvg onClick={() => onClickArrow(-1)} />
-                {key}/{viewModel.testimonials.length}
-                <ArrowSvg isRight onClick={() => onClickArrow(1)} />
-              </div>
+              {!isMobileView && (
+                <div className="testimonial-counter">
+                  <ArrowSvg onClick={() => onClickArrow(-1)} />
+                  {key}/{viewModel.testimonials.length}
+                  <ArrowSvg isRight onClick={() => onClickArrow(1)} />
+                </div>
+              )}
               <div
                 className={currentTestimonialClass} 
                 style={{ minHeight: testimonialMinHeight }}
@@ -95,17 +97,19 @@ export const ReadyContents = () => {
                 <div className="current-testimonial-content">{content}</div>
                 <div className="current-testimonial-name">-{name}</div>
               </div>
-              <div className="testimonial-counter hide-on-desktop">
-                <ArrowSvg onClick={() => onClickArrow(-1)} />
-                {key}/{viewModel.testimonials.length}
-                <ArrowSvg isRight onClick={() => onClickArrow(1)} />
-              </div>
+              {isMobileView && (
+                <div className="testimonial-counter">
+                  <ArrowSvg onClick={() => onClickArrow(-1)} />
+                  {key}/{viewModel.testimonials.length}
+                  <ArrowSvg isRight onClick={() => onClickArrow(1)} />
+                </div>
+              )}
             </div>
             <div className="links-container">
-              <div onClick={openLinkedIn} className="social-link editorial-font body-title">
+              <div onClick={openLinkedIn} className="social-link editorial-font ready-body-title">
                 LinkedIn
               </div>
-              <a href="mailto:hello@breakupartist.coach" className="social-link editorial-font body-title">
+              <a href="mailto:hello@breakupartist.coach" className="social-link editorial-font ready-body-title">
                 Email
               </a>
               <div className="policy-link body-font body-subtitle" onClick={() => setTermsOpen(true)}>

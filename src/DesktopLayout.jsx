@@ -73,17 +73,19 @@ export const DesktopLayout = () => {
 
   useEffect(() => {
     const windowResize = () => {
-      let rollingThreshold = 0;
-      const newThresholds = { ...thresholds.current };
+      setTimeout(() => {
+        let rollingThreshold = 0;
+        const newThresholds = { ...thresholds.current };
 
-      viewModel.tabKeys.forEach((key, idx) => {
-        const el = document.getElementById(key);
-        const currentLeft = el.getBoundingClientRect().left - 20 - 20 * idx;
-        newThresholds[key] = rollingThreshold + currentLeft;
-        rollingThreshold += currentLeft;
-      });
+        viewModel.tabKeys.forEach((key, idx) => {
+          const el = document.getElementById(key);
+          const currentLeft = el.getBoundingClientRect().left - 20 - 20 * idx;
+          newThresholds[key] = rollingThreshold + currentLeft;
+          rollingThreshold += currentLeft;
+        });
 
-      thresholds.current = newThresholds;
+        thresholds.current = newThresholds;
+      }, 600)
     };
 
     windowResize();

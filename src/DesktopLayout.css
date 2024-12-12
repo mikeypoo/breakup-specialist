@@ -127,7 +127,7 @@
   justify-content: space-between;
   align-items: center;
   transition: opacity 300ms ease-out;
-  overflow-y: auto;
+  overflow-y: hidden;
 }
 
 .desktop-layout .tab#paradox .body-container {
@@ -156,8 +156,9 @@
   justify-content: center;
   color: var(--eerie-black);
   width: 100%;
-  font-size: 1vw;
   padding-bottom: 8vw;
+  font-size: var(--font-sm);
+  line-height: var(--line-height-sm);
 }
 
 .desktop-layout .tab#ready .body-content {
@@ -191,7 +192,6 @@
 
 .desktop-layout .body-content-section {
   margin-top: 1.5vw;
-  line-height: 1.5vw;
   break-inside: avoid-column;
 }
 
@@ -204,8 +204,8 @@
 }
 
 .desktop-layout .body-content-section.big-font {
-  font-size: 1.3vw;
-  line-height: 2vw;
+  font-size: var(--font-lg);
+  line-height: var(--line-height-lg);
 }
 
 .desktop-layout .approach-contents .body-content-section {
@@ -221,8 +221,15 @@
 }
 
 .desktop-layout .tab .body-container .body-title {
-  font-size: 2.65vw;
-  margin-bottom: 8px;
+  font-size: var(--font-xl);
+  line-height: var(--line-height-xl);
+  margin-bottom: var(--spc);
+}
+
+.desktop-layout .tab .body-container .ready-body-title {
+  font-size: var(--font-ready-xl);
+  line-height: var(--line-height-ready-xl);
+  margin-bottom: var(--spc);
 }
 
 .desktop-layout .tab .body-container .body-subtitle {
@@ -315,11 +322,11 @@
 }
 
 .desktop-layout .ready-container .ready-img {
-  width: 20vw;
-  height: 20vw;
+  width: 25vw;
+  height: 25vw;
   object-fit: cover;
   object-position: top;
-  margin-bottom: 1vw;
+  margin-bottom: 2vw;
 }
 
 .desktop-layout .butterfly {
@@ -373,8 +380,8 @@
 }
 
 .desktop-layout .approach-header-text {
-  font-size: 1.2vw;
-  line-height: 1.5vw;
+  font-size: var(--font-md);
+  line-height: var(--line-height-md);
 }
 
 .desktop-layout .testimonials-and-links {
