@@ -388,3 +388,11 @@ html {
   cursor: pointer;
   margin-bottom: calc(var(--spc) * 4);
 }
+
+.policy-mail-link {
+  color: var(--eerie-black);
+}
+
+.policy-mail-link:hover {
+  color: var(--dim-gray);
+}

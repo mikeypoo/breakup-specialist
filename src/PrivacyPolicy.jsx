@@ -98,7 +98,7 @@ export const PrivacyPolicy = () => {
                         For EU residents: Exercise rights under the GDPR, including the right to data portability and objection to data processing.
                     </li>
                 </ul>
-                To exercise your rights, please contact us at hello@BreakupArtist.Coach.
+                To exercise your rights, please contact us at <a className="policy-mail-link" href="mailto:hello@breakupartist.coach">hello@breakupartist.coach</a>.
             </div>
             <div className="policy-header">
                 Updates to This Privacy Policy
