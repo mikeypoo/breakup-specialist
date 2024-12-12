@@ -420,7 +420,7 @@
     transform: unset;
     font-size: 2vw;
     right: 0;
-    left: 4dvh;
+    left: 5.5dvh;
     top: unset;
     text-align: left;
   }
@@ -468,7 +468,7 @@
   }
 
   .mobile-layout .tab#ready .body-container .body-content {
-    height: 73dvh;
+    height: 70dvh;
   }
 
   .mobile-layout .tab .body-container .body-subtitle {
