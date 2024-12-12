@@ -127,7 +127,7 @@
   justify-content: space-between;
   align-items: center;
   transition: opacity 300ms ease-out;
-  overflow-y: hidden;
+  overflow-y: auto;
 }
 
 .desktop-layout .tab#paradox .body-container {
