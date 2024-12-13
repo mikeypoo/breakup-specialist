@@ -1,7 +1,7 @@
 /* --- PHONE --- */
 
 /* --- phones in portrait mode --- */
-@media ((aspect-ratio < 3 / 5) or (aspect-ratio > 5 / 3)) {
+@media (max-aspect-ratio: 3 / 5) and (orientation: portrait), (min-aspect-ratio: 5 / 3) and (orientation: landscape) {
   .mobile-layout .editorial-font {
     font-family: "EditorialNew";
     color: var(--eerie-black);
@@ -386,7 +386,7 @@
 
 
 /* --- phones landscape mode --- */
-@media (orientation: landscape) and ((aspect-ratio < 3 / 5) or (aspect-ratio > 5 / 3)) {
+@media (min-aspect-ratio: 5 / 3) and (orientation: landscape) {
   .mobile-layout .home-content {
     height: auto;
     display: flex;
@@ -530,7 +530,7 @@
 /* --- TABLET --- */
 
 /* --- tablets portrait mode --- */
-@media (3 / 5 < aspect-ratio < 5 / 3) {
+@media (min-aspect-ratio: 3 / 5) and (max-aspect-ratio: 5 / 3) {
   .mobile-layout .editorial-font {
     font-family: "EditorialNew";
     color: var(--eerie-black);
@@ -917,7 +917,7 @@
 }
 
 /* --- tablets landscape mode --- */
-@media (orientation: landscape) and (3 / 5 < aspect-ratio < 5 / 3) {
+@media (orientation: landscape) and (min-aspect-ratio: 3 / 5) and (max-aspect-ratio: 5 / 3) {
   .mobile-layout .home-content-name,
   .mobile-layout .home-content-title {
     font-size: calc(5vw + 5vh);
