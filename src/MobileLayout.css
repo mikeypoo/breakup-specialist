@@ -126,6 +126,7 @@
     color: var(--eerie-black);
     overflow-y: auto;
     padding-bottom: 24px;
+    font-size: var(--font-sm);
     background:
       /* Shadow covers */ linear-gradient(
         var(--off-white) 30%,
@@ -214,13 +215,14 @@
   }
 
   .mobile-layout .tab .body-container .body-cta {
-    border: 2px solid var(--eerie-black);
+    border: 2px solid var(--off-white);
     border-radius: 54px;
     width: 212px;
     height: 50px;
     font-size: 2rem;
     text-align: center;
-    background-color: var(--off-white);
+    background-color: var(--eerie-black);
+    color: var(--off-white);
     transition: background-color 300ms ease-out;
     cursor: pointer;
     margin-bottom: 24px;
@@ -353,6 +355,7 @@
     flex-direction: column;
     align-items: flex-start;
     margin-top: 20vw;
+    padding-bottom: 20vw;
   }
 
   .mobile-layout .tab .body-container .social-link {
@@ -516,6 +519,7 @@
 
   .mobile-layout .tab .body-container .links-container {
     margin-top: 20dvh;
+    padding-bottom: 20dvh;
   }
 
   .mobile-layout .tab .body-container .policy-link {
@@ -651,6 +655,7 @@
     color: var(--eerie-black);
     overflow-y: auto;
     padding-bottom: 24px;
+    font-size: var(--font-sm);
     background:
       /* Shadow covers */ linear-gradient(
         var(--off-white) 30%,
@@ -741,13 +746,14 @@
   }
 
   .mobile-layout .tab .body-container .body-cta {
-    border: 2px solid var(--eerie-black);
+    border: 2px solid var(--off-white);
+    color: var(--off-white);
     border-radius: 54px;
     width: 212px;
     height: 50px;
     font-size: 2rem;
     text-align: center;
-    background-color: var(--off-white);
+    background-color: var(--eerie-black);
     transition: background-color 300ms ease-out;
     cursor: pointer;
     margin-bottom: 24px;
@@ -880,6 +886,7 @@
     flex-direction: column;
     align-items: flex-start;
     margin-top: 8vw;
+    padding-bottom: 8vw;
   }
 
   .mobile-layout .tab .body-container .social-link {
@@ -1032,6 +1039,7 @@
 
   .mobile-layout .tab .body-container .links-container {
     margin-top: 8dvh;
+    padding-bottom: 8dvh;
   }
 
   .mobile-layout .tab .body-container .policy-link {
