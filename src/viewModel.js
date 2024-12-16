@@ -7,7 +7,6 @@ export const viewModel = {
     titleBottom: "Artist",
     imgSrc: "home_4_shop.png",
     mobileImgSrc: "home_4_shop.png",
-    subtitle: "Access the happiness and fulfillment you thought your success would provide by breaking up with the people, places, and patterns that drain your vitality.",
     subtitleShort: "Break up with the people, places, and patterns that drain your vitality.",
   },
   paradox: {

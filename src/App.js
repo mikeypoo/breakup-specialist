@@ -6,6 +6,7 @@ import { AppContext } from "./AppContext";
 import { viewModel } from "./viewModel";
 import { DesktopModal } from "./DesktopModal";
 import { MobileModal } from "./MobileModal";
+import { useFontLoader } from "./useFontLoader";
 
 const MOBILE_THRESH = 1060;
 
@@ -18,6 +19,7 @@ const App = () => {
   const [isMobileView, setIsMobileView] = useState(isMobileOrTouch());
   const [termsOpen, setTermsOpen] = useState(false);
   const [privacyOpen, setPrivacyOpen] = useState(false);
+  const fontLoaded = useFontLoader('EditorialNew')
 
   const showingModal = termsOpen || privacyOpen;
 
@@ -70,6 +72,8 @@ const App = () => {
   };
 
   const Layout = isMobileView ? MobileLayout : DesktopLayout;
+
+  if (!fontLoaded) return null
 
   return (
     <AppContext.Provider value={contextValue}>
