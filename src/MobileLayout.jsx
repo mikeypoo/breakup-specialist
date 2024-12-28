@@ -8,7 +8,6 @@ export const MobileLayout = () => {
   const { home, tabKeys } = viewModel;
   const [imgLoaded, setImgLoaded] = useState(false)
 
-  const redText = useRef()
   const homeImg = useRef()
 
   const defaultSwipes = {
@@ -33,41 +32,42 @@ export const MobileLayout = () => {
     setSwipes(newSwipes);
   };
 
-  const updateTextColor = () => {
-    const textElement = redText.current;
-    const container = homeImg.current;
-    const containerRect = container.getBoundingClientRect();
+  // maybe we bring this back one day (':
+  // const updateTextColor = () => {
+  //   const textElement = redText.current;
+  //   const container = homeImg.current;
+  //   const containerRect = container.getBoundingClientRect();
 
-    const characters = Array.from(textElement.textContent);
-    textElement.innerHTML = "";
-    characters.forEach(char => {
-      const span = document.createElement("span");
-      span.textContent = char;
-      textElement.appendChild(span);
-    });
+  //   const characters = Array.from(textElement.textContent);
+  //   textElement.innerHTML = "";
+  //   characters.forEach(char => {
+  //     const span = document.createElement("span");
+  //     span.textContent = char;
+  //     textElement.appendChild(span);
+  //   });
 
-    requestAnimationFrame(() => {
-      const spans = Array.from(textElement.children);
-      spans.forEach((span) => {
-        const rect = span.getBoundingClientRect();
-        const onLeftBorder = rect.left < containerRect.left && containerRect.left < rect.right
-        const onRightBorder = rect.left < containerRect.right && containerRect.right < rect.right
+  //   requestAnimationFrame(() => {
+  //     const spans = Array.from(textElement.children);
+  //     spans.forEach((span) => {
+  //       const rect = span.getBoundingClientRect();
+  //       const onLeftBorder = rect.left < containerRect.left && containerRect.left < rect.right
+  //       const onRightBorder = rect.left < containerRect.right && containerRect.right < rect.right
 
-        if (onLeftBorder) {
-          const pxDiff = containerRect.left - rect.left
-          span.style.color = 'transparent'
-          span.style.background = `linear-gradient(to right, rgba(180,41,37,1) ${pxDiff}px, rgba(241,232,231,1) ${pxDiff}px) text`
-        } else if (onRightBorder) {
-          const pxDiff = rect.width - (rect.right - containerRect.right)
-          span.style.color = 'transparent'
-          span.style.background = `linear-gradient(to right, rgba(241,232,231,1) ${pxDiff}px, rgba(180,41,37,1) ${pxDiff}px) text`
-        } else {
-          const onImg = rect.left > containerRect.left && rect.right < containerRect.right;
-          span.style.color = onImg ? "#F1E8E7" : "#B42925";
-        }
-      });
-    });
-  }
+  //       if (onLeftBorder) {
+  //         const pxDiff = containerRect.left - rect.left
+  //         span.style.color = 'transparent'
+  //         span.style.background = `linear-gradient(to right, rgba(180,41,37,1) ${pxDiff}px, rgba(241,232,231,1) ${pxDiff}px) text`
+  //       } else if (onRightBorder) {
+  //         const pxDiff = rect.width - (rect.right - containerRect.right)
+  //         span.style.color = 'transparent'
+  //         span.style.background = `linear-gradient(to right, rgba(241,232,231,1) ${pxDiff}px, rgba(180,41,37,1) ${pxDiff}px) text`
+  //       } else {
+  //         const onImg = rect.left > containerRect.left && rect.right < containerRect.right;
+  //         span.style.color = onImg ? "#F1E8E7" : "#B42925";
+  //       }
+  //     });
+  //   });
+  // }
 
   useEffect(() => {
     const windowResize = () => {
@@ -80,7 +80,6 @@ export const MobileLayout = () => {
       });
 
       setThresholds(newThresholds);
-      updateTextColor();
     };
 
     const orientationChanged = () => {
@@ -107,7 +106,6 @@ export const MobileLayout = () => {
         </div>
         <div className="home-content-img-container">
           <img className="home-content-img" src={home.mobileImgSrc} alt="home" ref={homeImg} onLoad={() => setImgLoaded(true)}/>
-          <div className="home-content-subtitle" ref={redText}>{home.subtitleShort}</div>
         </div>
         <div className="home-content-title">
           {home.titleTop} {home.titleBottom}
