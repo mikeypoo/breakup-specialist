@@ -13,7 +13,7 @@ export const ParadoxContents = () => {
           <div className="body-content-row top-margin">
             <div className="body-content-column">
               <div className="body-content-container">
-                <div className="body-content-section gray-font">
+                <div className="body-content-section">
                   *Breakup: Changing your relationship with a person, place, or pattern that no longer serves you. 
                 </div>
                 <div className="body-content-section">

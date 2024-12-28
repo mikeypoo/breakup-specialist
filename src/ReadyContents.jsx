@@ -76,7 +76,7 @@ export const ReadyContents = () => {
             Testimonials & Links
           </div>
           <div className="testimonials-and-links">
-            <div>
+            <div className="testimonials">
               {!isMobileView && (
                 <div className="testimonial-counter">
                   <ArrowSvg onClick={() => onClickArrow(-1)} />
