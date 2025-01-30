@@ -47,7 +47,7 @@ const App = () => {
 
   const openCalendly = () => {
     window
-      .open("https://calendly.com/elizaldana/clarity-session", "_blank")
+      .open("https://calendly.com/elizabethaldana/15-minute-call", "_blank")
       .focus();
   };
 
